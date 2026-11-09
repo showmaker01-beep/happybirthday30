@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>💌 Love Letter | Birthday Isle</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Cherry+Bomb+One&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =====================================
+   RESET
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================
+   BODY
+===================================== */
+
+body {
+
+    min-height: 100vh;
+
+    font-family: "Comic Neue", cursive;
+
+    background:
+        linear-gradient(
+            180deg,
+            #aee4f5 0%,
+            #d9f4ef 42%,
+            #fff1cf 72%,
+            #ffd9c7 100%
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* =====================================
+   CLOUDS
+===================================== */
+
+.cloud {
+
+    position: absolute;
+
+    width: 150px;
+    height: 45px;
+
+    background: rgba(255,255,255,.7);
+
+    border-radius: 50px;
+
+    opacity: .75;
+
+    pointer-events: none;
+}
+
+.cloud::before,
+.cloud::after {
+
+    content: "";
+
+    position: absolute;
+
+    background: rgba(255,255,255,.7);
+
+    border-radius: 50%;
+}
+
+.cloud::before {
+
+    width: 65px;
+    height: 65px;
+
+    left: 20px;
+    bottom: 12px;
+}
+
+.cloud::after {
+
+    width: 75px;
+    height: 75px;
+
+    right: 20px;
+    bottom: 8px;
+}
+
+.cloud-one {
+    top: 7%;
+    left: 4%;
+}
+
+.cloud-two {
+    top: 16%;
+    right: 4%;
+    transform: scale(.8);
+}
+
+
+/* =====================================
+   MAIN PAGE
+===================================== */
+
+.page {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+
+/* =====================================
+   TITLE
+===================================== */
+
+.badge {
+
+    display: inline-block;
+
+    padding: 8px 20px;
+
+    background: rgba(255,255,255,.9);
+
+    border-radius: 30px;
+
+    color: #dc7194;
+
+    font-family: "Baloo 2", cursive;
+
+    font-weight: 700;
+
+    font-size: 15px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.08);
+}
+
+
+h1 {
+
+    margin-top: 8px;
+
+    font-family: "Cherry Bomb One", cursive;
+
+    font-size: clamp(42px, 7vw, 68px);
+
+    color: #e76594;
+
+    text-shadow:
+        3px 3px white,
+        0 7px 15px rgba(0,0,0,.08);
+}
+
+
+.subtitle {
+
+    margin-top: 3px;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: 20px;
+
+    color: #75636a;
+}
+
+
+.instruction {
+
+    margin-top: 8px;
+
+    margin-bottom: 15px;
+
+    color: #987780;
+
+    font-size: 15px;
+}
+
+
+/* =====================================
+   ENVELOPE AREA
+===================================== */
+
+.letter-area {
+
+    width: 100%;
+
+    height: 430px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* =====================================
+   FLOATING DECORATIONS
+===================================== */
+
+.floating-decoration {
+
+    position: absolute;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    z-index: 3;
+
+    animation:
+        cuteFloat 4s ease-in-out infinite;
+}
+
+
+/* Hearts */
+
+.decor-heart-one {
+
+    top: 15%;
+
+    left: 40%;
+
+    font-size: 27px;
+
+    animation-delay: 0s;
+}
+
+.decor-heart-two {
+
+    top: 30%;
+
+    right: 28%;
+
+    font-size: 22px;
+
+    animation-delay: 1.2s;
+}
+
+.decor-heart-three {
+
+    bottom: 52%;
+
+    left: 10%;
+
+    font-size: 20px;
+
+    animation-delay: 2s;
+}
+
+
+/* Flowers */
+
+.decor-flower-one {
+
+    top: 23%;
+
+    left: 2%;
+
+    font-size: 29px;
+
+    animation-delay: .7s;
+}
+
+.decor-flower-two {
+
+    bottom: 15%;
+
+    right: 2%;
+
+    font-size: 28px;
+
+    animation-delay: 1.8s;
+}
+
+
+/* Sparkles */
+
+.decor-sparkle-one {
+
+    top: 10%;
+
+    right: 24%;
+
+    font-size: 25px;
+
+    animation-delay: .5s;
+}
+
+.decor-sparkle-two {
+
+    bottom: 25%;
+
+    left: 13%;
+
+    font-size: 18px;
+
+    animation-delay: 2.5s;
+}
+
+.decor-sparkle-three {
+
+    top: 42%;
+
+    right: 11%;
+
+    font-size: 17px;
+
+    animation-delay: 1.5s;
+}
+
+
+/* Bow */
+
+.decor-bow {
+
+    bottom: 12%;
+
+    left: 3%;
+
+    font-size: 35px;
+
+    animation-delay: 1s;
+}
+
+
+/* Tiny dots */
+
+.dot {
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.85);
+
+    box-shadow:
+        0 3px 8px rgba(0,0,0,.08);
+
+    animation:
+        dotFloat 3.5s ease-in-out infinite;
+}
+
+.dot-one {
+
+    top: 35%;
+
+    left: 29%;
+}
+
+.dot-two {
+
+    top: 20%;
+
+    right: 29%;
+
+    animation-delay: 1s;
+}
+
+.dot-three {
+
+    bottom: 28%;
+
+    right: 26%;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes cuteFloat {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            rotate(-5deg);
+
+        opacity: .75;
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(5deg);
+
+        opacity: 1;
+    }
+}
+
+
+@keyframes dotFloat {
+
+    0%,100% {
+
+        transform:
+            translateY(0)
+            scale(.8);
+
+        opacity: .5;
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px)
+            scale(1.2);
+
+        opacity: 1;
+    }
+}
+
+
+/* =====================================
+   ENVELOPE
+===================================== */
+
+.envelope {
+
+    width: 520px;
+
+    height: 350px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease;
+
+    z-index: 5;
+}
+
+
+.envelope:hover {
+
+    transform:
+        translateY(-6px);
+}
+
+
+/* =====================================
+   LETTER MASK
+===================================== */
+
+.letter-mask {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 65px;
+
+    width: 520px;
+
+    height: 285px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* =====================================
+   LETTER
+===================================== */
+
+.letter {
+
+    position: absolute;
+
+    width: 420px;
+    height: 500px;
+
+    left: 50%;
+    top: 115px;
+
+    transform: translateX(-50%);
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 28px,
+            rgba(235,181,194,.35) 29px
+        ),
+        #fffdf6;
+
+    border-radius: 12px;
+
+    padding: 32px 35px;
+
+    text-align: left;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+
+    transition:
+        transform 1s cubic-bezier(.22,1,.36,1);
+
+    z-index: 1;
+
+    overflow: hidden;
+}
+
+/* Letter heading */
+
+.letter h2 {
+
+    font-family: "Baloo 2", cursive;
+
+    color: #df6792;
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+
+    line-height: 1.2;
+}
+
+/* Letter text */
+
+.letter p {
+
+    color: #5e5356;
+
+    font-size: 16px;
+
+    line-height: 1.55;
+
+    margin-bottom: 13px;
+}
+
+
+/* Signature */
+
+.signature {
+    text-align: right;
+
+    font-family:
+        "Cherry Bomb One",
+        cursive;
+
+    color: #df6792;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    margin-top: 18px !important;
+
+    margin-bottom: 0 !important;
+
+    padding-bottom: 8px;
+}
+
+.signature .name {
+    display: inline-block;
+
+    font-size: 23px;
+
+    color: #e45f8d;
+
+    margin-top: 4px;
+}
+
+/* =====================================
+   ENVELOPE BODY
+===================================== */
+
+.envelope-body {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 520px;
+
+    height: 285px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffb7d1,
+            #ff8fb7
+        );
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 25px 45px rgba(190,100,130,.3);
+
+    overflow: hidden;
+
+    z-index: 4;
+}
+
+
+/* Envelope folds */
+
+.envelope-body::before {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    border-left: 260px solid #f98caf;
+
+    border-top: 145px solid transparent;
+}
+
+
+.envelope-body::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+
+    right: 0;
+
+    border-right: 260px solid #f98caf;
+
+    border-top: 145px solid transparent;
+}
+
+
+/* =====================================
+   FLAP
+===================================== */
+
+.flap {
+
+    position: absolute;
+
+    top: 65px;
+
+    left: 0;
+
+    width: 0;
+
+    height: 0;
+
+    border-left: 260px solid transparent;
+
+    border-right: 260px solid transparent;
+
+    border-top: 175px solid #ff80aa;
+
+    transform-origin: top center;
+
+    transition:
+        transform .9s ease;
+
+    z-index: 7;
+}
+
+
+/* =====================================
+   HEART SEAL
+===================================== */
+
+.seal {
+
+    position: absolute;
+
+    top: 190px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 72px;
+
+    height: 72px;
+
+    border-radius: 50%;
+
+    background: #ff5f8f;
+
+    border: 6px solid #ffacc5;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 34px;
+
+    z-index: 10;
+
+    box-shadow:
+        0 6px 15px rgba(0,0,0,.18);
+
+    transition: .5s;
+}
+
+
+/* =====================================
+   OPEN STATE
+===================================== */
+
+.envelope.open .letter-mask {
+
+    overflow: visible;
+
+    z-index: 8;
+}
+
+
+.envelope.open .letter {
+    transform:
+        translateX(-50%)
+        translateY(-330px);
+}
+
+
+.envelope.open .flap {
+
+    transform:
+        rotateX(180deg);
+
+    z-index: 3;
+}
+
+
+.envelope.open .seal {
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scale(.5);
+}
+
+
+.envelope.open:hover {
+
+    transform: none;
+}
+
+
+/* =====================================
+   RETURN BUTTON
+===================================== */
+
+.buttons {
+
+    margin-top: 0;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.back-btn {
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff91b2,
+            #ed6d99
+        );
+
+    color: white;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(213,100,137,.3);
+
+    transition: .3s;
+}
+
+
+.back-btn:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.04);
+}
+
+
+/* =====================================
+   GRASS
+===================================== */
+
+.ground {
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 65px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #c7e9a9,
+            #a6d989
+        );
+
+    border-radius:
+        50% 50% 0 0 /
+        35% 35% 0 0;
+
+    z-index: 1;
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 650px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .page {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+    }
+
+    .letter-area {
+        height: 360px;
+    }
+
+    .envelope {
+
+        width: 340px;
+
+        height: 250px;
+    }
+
+    .letter-mask {
+
+        width: 340px;
+
+        height: 210px;
+
+        top: 40px;
+    }
+
+    .letter {
+
+        width: 290px;
+
+        height: 245px;
+
+        top: 80px;
+
+        padding: 22px;
+    }
+
+    .letter h2 {
+        font-size: 23px;
+    }
+
+    .letter p {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .envelope-body {
+
+        width: 340px;
+
+        height: 210px;
+    }
+
+    .envelope-body::before {
+
+        border-left-width: 170px;
+
+        border-top-width: 110px;
+    }
+
+    .envelope-body::after {
+
+        border-right-width: 170px;
+
+        border-top-width: 110px;
+    }
+
+    .flap {
+
+        top: 40px;
+
+        border-left-width: 170px;
+
+        border-right-width: 170px;
+
+        border-top-width: 120px;
+    }
+
+    .seal {
+
+        top: 135px;
+
+        width: 60px;
+
+        height: 60px;
+
+        font-size: 27px;
+    }
+
+    .envelope.open .letter {
+
+        transform:
+            translateX(-50%)
+            translateY(-170px);
+    }
+
+
+    /* Move decorations outward */
+
+    .decor-heart-one {
+        left: 3%;
+    }
+
+    .decor-heart-two {
+        right: 3%;
+    }
+
+    .decor-flower-one {
+        left: 2%;
+    }
+
+    .decor-flower-two {
+        right: 2%;
+    }
+
+    .decor-sparkle-one {
+        right: 5%;
+    }
+
+    .decor-bow {
+        left: 3%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     CLOUDS
+===================================== -->
+
+<div class="cloud cloud-one"></div>
+<div class="cloud cloud-two"></div>
+
+
+<!-- =====================================
+     MAIN
+===================================== -->
+
+<main class="page">
+
+
+    <div class="badge">
+        🏝️ Birthday Isle • Special Delivery
+    </div>
+
+
+    <h1>
+        💌 A Letter For You
+    </h1>
+
+
+    <div class="subtitle">
+        A little piece of my heart ♡
+    </div>
+
+
+    <div class="instruction">
+        ✨ Click the envelope to open your letter ✨
+    </div>
+
+
+    <!-- =================================
+         ENVELOPE AREA
+    ================================= -->
+
+    <section class="letter-area">
+
+
+        <!-- FLOATING DECORATIONS -->
+
+        <div class="floating-decoration decor-heart-one">
+            💗
+        </div>
+
+        <div class="floating-decoration decor-heart-two">
+            💕
+        </div>
+
+        <div class="floating-decoration decor-heart-three">
+            💖
+        </div>
+
+
+        <div class="floating-decoration decor-flower-one">
+            🌸
+        </div>
+
+        <div class="floating-decoration decor-flower-two">
+            🌷
+        </div>
+
+
+        <div class="floating-decoration decor-sparkle-one">
+            ✨
+        </div>
+
+        <div class="floating-decoration decor-sparkle-two">
+            ✨
+        </div>
+
+        <div class="floating-decoration decor-sparkle-three">
+            ⭐
+        </div>
+
+
+        <div class="floating-decoration decor-bow">
+            🎀
+        </div>
+
+
+        <!-- LITTLE FLOATING DOTS -->
+
+        <div class="floating-decoration dot dot-one"></div>
+
+        <div class="floating-decoration dot dot-two"></div>
+
+        <div class="floating-decoration dot dot-three"></div>
+
+
+        <!-- =================================
+             ENVELOPE
+        ================================= -->
+
+        <div
+            class="envelope"
+            id="envelope"
+            role="button"
+            tabindex="0"
+            aria-label="Open love letter">
+
+
+            <!-- LETTER MASK -->
+
+            <div class="letter-mask">
+
+
+                <!-- LETTER -->
+
+                <div class="letter">
+
+
+                    <h2>
+                        Happy Birthday to my
+                        favourite person in the 
+                        whole world ❤️
+                    </h2>
+
+
+                    <p>
+                        Thank you for being my favourite
+                        person, my adventure partner and
+                        the person who makes even ordinary
+                        days feel special.
+                    </p>
+
+
+                    <p>
+                        Every memory with you feels like
+                        a little treasure. From all our 
+                        adventures to the quiet moments 
+                        together, I wouldn't trade any of 
+                        them for anything 🌴✨
+                    </p>
+
+
+                    <p>
+                        I can't wait to create so many more
+                        memories, laughs, adventures and little
+                        moments with you.
+                    </p>
+
+
+                    <p>
+                        Thank you for always being you and for 
+                        making my world a little happier 
+                        just by being in it 💕
+                    </p>
+
+
+                    <p class="signature">
+
+    Love always 💕
+
+    <br>
+
+    <span class="name">
+        Mahima ♡
+    </span>
+
+</p>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- ENVELOPE BODY -->
+
+            <div class="envelope-body"></div>
+
+
+            <!-- ENVELOPE FLAP -->
+
+            <div class="flap"></div>
+
+
+            <!-- HEART SEAL -->
+
+            <div class="seal">
+                💗
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================
+         RETURN BUTTON
+    ================================= -->
+
+    <div class="buttons">
+
+        <button
+            class="back-btn"
+            onclick="goToIslandMap()">
+
+            🏝️ Return to Island Map
+
+        </button>
+
+    </div>
+
+
+</main>
+
+
+<!-- GRASS -->
+
+<div class="ground"></div>
+
+
+<script>
+
+/* =====================================
+   OPEN / CLOSE LETTER
+===================================== */
+
+const envelope =
+    document.getElementById("envelope");
+
+
+envelope.addEventListener("click", function () {
+
+    this.classList.toggle("open");
+
+});
+
+
+/* =====================================
+   KEYBOARD SUPPORT
+===================================== */
+
+envelope.addEventListener("keydown", function(event) {
+
+    if (
+        event.key === "Enter" ||
+        event.key === " "
+    ) {
+
+        event.preventDefault();
+
+        this.classList.toggle("open");
+
+    }
+
+});
+
+
+/* =====================================
+   RETURN TO ISLAND MAP
+===================================== */
+
+function goToIslandMap() {
+
+    window.location.href =
+        "island-map.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```

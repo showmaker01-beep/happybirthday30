@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Memories 💗</title>
+
+<!-- Cute Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Cherry+Bomb+One&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:34vh;
+    background:
+    linear-gradient(#b8f3ff,#fff5d7);
+    font-family:'Comic Neue', cursive;
+    overflow-x:hidden;
+}
+
+
+/* Floating decorations */
+
+.sparkle{
+    position:absolute;
+    font-size:35px;
+    animation:float 5s infinite ease-in-out;
+}
+
+.star1{
+    top:10%;
+    left:10%;
+}
+
+.star2{
+    top:30%;
+    right:12%;
+    animation-delay:1s;
+}
+
+.star3{
+    bottom:15%;
+    left:15%;
+    animation-delay:2s;
+}
+
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
+    }
+
+}
+
+
+/* Main Section */
+
+.memories-section{
+
+    padding:60px 20px;
+    text-align:center;
+
+}
+
+
+h1{
+    font-family:'Cherry Bomb One', cursive;
+    font-size:55px;
+    color:#ff8fab;
+    text-shadow:3px 3px white;
+}
+
+
+.subtitle{
+    font-size:22px;
+    color:#6b705c;
+    margin-bottom:40px;
+}
+
+
+/* Polaroid container */
+
+.gallery{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:35px;
+}
+
+
+/* Polaroid */
+.polaroid{
+    background:white;
+    width:300px;
+    padding:15px 15px 35px;
+    box-shadow:
+    0 10px 20px rgba(0,0,0,0.15);
+    transform:rotate(-3deg);
+    transition:0.4s;
+    position:relative;
+}
+
+
+.polaroid:nth-child(even){
+    transform:rotate(4deg);
+}
+
+
+.polaroid:hover{
+    transform:
+    translateY(-15px)
+    rotate(0deg)
+    scale(1.05);
+}
+
+
+/* Image */
+.polaroid img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:5px;
+}
+
+
+/* Caption */
+.caption{
+    margin-top:18px;
+    font-size:20px;
+    color:#555;
+}
+
+
+.date{
+    font-size:15px;
+    color:#ff8fab;
+}
+
+/* Cute tape */
+.polaroid::before{
+    content:"";
+    position:absolute;
+    top:-15px;
+    left:50%;
+    transform:translateX(-50%) rotate(-5deg);
+    width:70px;
+    height:25px;
+    background:#ffd6e0;
+    opacity:0.8;
+}
+
+
+/* Button */
+.back-btn{
+    margin-top:40px;
+    display:inline-block;
+    background:#ff9fba;
+    color:white;
+    padding:15px 35px;
+    border-radius:50px;
+    font-size:22px;
+    text-decoration:none;
+    box-shadow:0 5px 10px rgba(0,0,0,0.15);
+    transition:0.3s;
+}
+
+
+.back-btn:hover{
+    transform:scale(1.1);
+    background:#ff7096;
+}
+
+
+</style>
+</head>
+
+<body>
+<div class="sparkle star1">✨</div>
+<div class="sparkle star2">⭐</div>
+<div class="sparkle star3">💗</div>
+
+<section class="memories-section">
+
+<h1>📸 Our Memories</h1>
+
+<p class="subtitle">
+A little scrapbook of our favourite adventures 💕
+</p>
+
+<div class="gallery">
+<!-- MEMORY 1 -->
+<div class="polaroid">
+<img src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.1&permmsgid=msg-a:s:9108315878331807774&th=1a1a0fb231ab36d3&view=att&disp=safe&realattid=976c8f22fe907576_0.1&zw">
+<div class="caption">
+Our First Day 💗
+</div>
+
+<div class="date">
+A special day 💗 and I hope it last forever
+</div>
+
+</div>
+
+
+
+<!-- MEMORY 2 -->
+<div class="polaroid">
+<img src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.2&permmsgid=msg-a:s:9108315878331807774&th=1a1a0fb231ab36d3&view=att&disp=safe&realattid=4050ffd3a6133642_0.1&zw">
+<div class="caption">
+Our first anniversary 
+</div>
+
+<div class="date">
+I remeber being nervous since I wanted to look good for you 
+</div>
+</div>
+
+<!-- MEMORY 3 -->
+
+<div class="polaroid">
+<img src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.3&permmsgid=msg-a:s:9108315878331807774&th=1a1a0fb231ab36d3&view=att&disp=safe&realattid=5a072ecf84d0811d_0.1&zw">
+<div class="caption">
+Our First Holiday 🌸
+</div>
+
+<div class="date">
+It was always my dream to go to Japan so I am happy that I get to do this with you💕
+</div>
+</div>
+
+
+<!-- MEMORY 4 -->
+<div class="polaroid">
+<img src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.4&permmsgid=msg-a:s:9108315878331807774&th=1a1a0fb231ab36d3&view=att&disp=safe&realattid=863c72abe84afda5_0.1&zw">
+<div class="caption">
+More places to explore ✈️
+</div>
+
+<div class="date">
+I hope that we will get to travel more places together and make many more memories!🗺️
+</div>
+
+</div>
+</div>
+
+<a href="island-map.html" class="back-btn">
+    🏝️ Return to Birthday Isle
+</a>
+
+</section>
+
+</body>
+</html>

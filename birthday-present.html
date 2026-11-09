@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Present 🎁</title>
+
+<!-- Cute fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Baloo 2', cursive;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.8) 0 8px, transparent 9px),
+        linear-gradient(135deg, #9ee7ff, #c9f3ff 45%, #ffe6f5 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #59445f;
+}
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+.decor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cloud {
+    position: fixed;
+    background: rgba(255,255,255,0.85);
+    border-radius: 50px;
+    width: 130px;
+    height: 45px;
+    filter: blur(0.5px);
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 60px;
+    height: 60px;
+    left: 20px;
+    bottom: 10px;
+}
+
+.cloud::after {
+    width: 75px;
+    height: 75px;
+    right: 20px;
+    bottom: 8px;
+}
+
+.cloud1 {
+    top: 12%;
+    left: 5%;
+    animation: cloudMove 12s infinite alternate ease-in-out;
+}
+
+.cloud2 {
+    top: 22%;
+    right: 5%;
+    transform: scale(0.75);
+    animation: cloudMove 15s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes cloudMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(35px); }
+}
+
+/* Floating hearts/stars */
+
+.floating {
+    position: fixed;
+    font-size: 24px;
+    animation: floatAround 5s ease-in-out infinite;
+    z-index: 1;
+}
+
+.f1 { top: 15%; left: 25%; animation-delay: 0s; }
+.f2 { top: 30%; right: 20%; animation-delay: 1s; }
+.f3 { bottom: 18%; left: 15%; animation-delay: 2s; }
+.f4 { bottom: 25%; right: 12%; animation-delay: 3s; }
+.f5 { top: 8%; right: 35%; animation-delay: 1.5s; }
+
+@keyframes floatAround {
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(8deg);
+    }
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.game-screen {
+    width: min(92%, 900px);
+    min-height: 85vh;
+
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(12px);
+
+    border: 4px solid rgba(255,255,255,0.9);
+    border-radius: 35px;
+
+    box-shadow:
+        0 20px 50px rgba(112, 93, 150, 0.18),
+        inset 0 0 30px rgba(255,255,255,0.7);
+
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 25px;
+    text-align: center;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+    font-family: 'Cherry Bomb One', cursive;
+    font-size: clamp(35px, 6vw, 62px);
+    color: #ff78a8;
+
+    text-shadow:
+        3px 3px 0 white,
+        6px 6px 0 rgba(255, 167, 203, 0.25);
+
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #75627b;
+    margin-bottom: 18px;
+}
+
+/* =========================
+   GIFT BOX
+========================= */
+
+.gift-area {
+    position: relative;
+    width: 250px;
+    height: 230px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 5px 0 15px;
+}
+
+.gift {
+    position: relative;
+    width: 150px;
+    height: 130px;
+
+    cursor: pointer;
+
+    animation: giftBounce 2s infinite ease-in-out;
+
+    transition: transform 0.3s ease;
+}
+
+.gift:hover {
+    transform: scale(1.08) rotate(-2deg);
+}
+
+@keyframes giftBounce {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Box */
+
+.box {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 105px;
+
+    background: linear-gradient(135deg, #ff9fc4, #ff76a9);
+
+    border: 4px solid #e85f94;
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 0 rgba(208, 83, 130, 0.2),
+        0 15px 20px rgba(140, 90, 130, 0.15);
+}
+
+/* Ribbon vertical */
+
+.ribbon-v {
+    position: absolute;
+    left: 60px;
+    top: 0;
+
+    width: 30px;
+    height: 100%;
+
+    background: #ffe77a;
+}
+
+/* Ribbon horizontal */
+
+.ribbon-h {
+    position: absolute;
+    left: 0;
+    top: 35px;
+
+    width: 100%;
+    height: 28px;
+
+    background: #ffe77a;
+}
+
+/* Lid */
+
+.lid {
+    position: absolute;
+
+    width: 165px;
+    height: 38px;
+
+    left: -7px;
+    top: -25px;
+
+    background: linear-gradient(135deg, #ffb0ce, #ff82af);
+
+    border: 4px solid #e85f94;
+    border-radius: 8px;
+
+    z-index: 5;
+
+    transition: all 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+/* Lid ribbon */
+
+.lid::after {
+    content: "";
+
+    position: absolute;
+    width: 30px;
+    height: 100%;
+
+    left: 63px;
+    top: 0;
+
+    background: #ffe77a;
+}
+
+/* Bow */
+
+.bow-left,
+.bow-right {
+    position: absolute;
+
+    width: 43px;
+    height: 32px;
+
+    background: #ffe77a;
+
+    border: 3px solid #e4bd45;
+    border-radius: 50%;
+}
+
+.bow-left {
+    top: -45px;
+    left: 42px;
+    transform: rotate(-25deg);
+}
+
+.bow-right {
+    top: -45px;
+    right: 42px;
+    transform: rotate(25deg);
+}
+
+.bow-center {
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    background: #ffd84f;
+
+    border-radius: 50%;
+
+    top: -39px;
+    left: 68px;
+
+    z-index: 10;
+}
+
+/* Open animation */
+
+.gift.open .lid {
+    transform: translateY(-80px) rotate(-8deg);
+}
+
+.gift.open {
+    animation: none;
+}
+
+/* =========================
+   PRESENT MESSAGE
+========================= */
+
+.message {
+    display: none;
+
+    max-width: 650px;
+
+    animation: messagePop 0.8s ease forwards;
+}
+
+.message.show {
+    display: block;
+}
+
+@keyframes messagePop {
+
+    0% {
+        opacity: 0;
+        transform: translateY(25px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.message h2 {
+    font-family: 'Cherry Bomb One', cursive;
+
+    font-size: 34px;
+
+    color: #ff78a8;
+
+    margin-bottom: 10px;
+}
+
+.message p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    font-family: 'Baloo 2', cursive;
+    font-size: 18px;
+    font-weight: 700;
+
+    border: none;
+    cursor: pointer;
+
+    border-radius: 50px;
+
+    padding: 12px 25px;
+
+    transition: all 0.25s ease;
+}
+
+.open-btn {
+    background: linear-gradient(135deg, #ff82af, #ff9dc2);
+    color: white;
+
+    box-shadow:
+        0 6px 0 #df628e,
+        0 10px 20px rgba(255, 105, 160, 0.25);
+}
+
+.open-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+}
+
+.next-btn {
+    margin-top: 18px;
+
+    background: #ffe47b;
+    color: #725f35;
+
+    box-shadow: 0 5px 0 #dfc14e;
+}
+
+.next-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* =========================
+   SECRET REVEAL
+========================= */
+
+.secret {
+    display: none;
+
+    max-width: 650px;
+
+    animation: messagePop 0.8s ease forwards;
+}
+
+.secret.show {
+    display: block;
+}
+
+.secret-box {
+    margin: 15px auto;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,232,245,0.95),
+        rgba(230,248,255,0.95)
+    );
+
+    border: 3px dashed #ff9dc2;
+
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.8);
+}
+
+.secret-box h2 {
+    font-family: 'Cherry Bomb One', cursive;
+    color: #ff78a8;
+    font-size: 32px;
+}
+
+.secret-box p {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+/* =========================
+   RETURN BUTTON
+========================= */
+
+.return-btn {
+    position: absolute;
+
+    bottom: 18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: rgba(255,255,255,0.95);
+
+    color: #71617a;
+
+    border: 3px solid #e8dff0;
+
+    padding: 9px 20px;
+
+    font-size: 16px;
+
+    box-shadow: 0 5px 12px rgba(120,100,140,0.12);
+
+    white-space: nowrap;
+}
+
+.return-btn:hover {
+    background: #fff1f7;
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+
+    width: 10px;
+    height: 16px;
+
+    top: -20px;
+
+    z-index: 100;
+
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .game-screen {
+        min-height: 90vh;
+        padding: 25px 15px 60px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+    }
+
+    .message p,
+    .secret-box p {
+        font-size: 17px;
+    }
+
+    .gift-area {
+        transform: scale(0.85);
+        margin: -5px 0;
+    }
+
+    .return-btn {
+        bottom: 12px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Clouds -->
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+
+<!-- Floating decorations -->
+
+<div class="floating f1">💗</div>
+<div class="floating f2">✨</div>
+<div class="floating f3">🌸</div>
+<div class="floating f4">💖</div>
+<div class="floating f5">⭐</div>
+
+<!-- Main screen -->
+
+<div class="game-screen">
+
+    <div class="title">
+        🎁 Birthday Present
+    </div>
+
+    <div class="subtitle" id="subtitle">
+        You found something special... 👀
+    </div>
+
+
+    <!-- GIFT -->
+
+    <div class="gift-area" id="giftArea">
+
+        <div class="gift" id="gift">
+
+            <div class="lid"></div>
+
+            <div class="bow-left"></div>
+            <div class="bow-right"></div>
+            <div class="bow-center"></div>
+
+            <div class="box">
+
+                <div class="ribbon-v"></div>
+                <div class="ribbon-h"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- OPEN BUTTON -->
+
+    <button class="open-btn" id="openBtn">
+        🎀 OPEN YOUR PRESENT 🎀
+    </button>
+
+
+    <!-- FIRST MESSAGE -->
+
+    <div class="message" id="message">
+
+        <h2>🎉 SURPRISE!</h2>
+
+        <p>
+            Happy Birthday, my favourite person! 💗
+            <br><br>
+
+            You have officially unlocked your
+            <strong>Birthday Present</strong>!
+            🎁✨
+
+            <br><br>
+
+            But... wait.
+
+            <br>
+
+            I may have hidden one more little surprise
+            inside this island for you... 👀💕
+
+        </p>
+
+        <button class="next-btn" id="nextBtn">
+            💌 ONE MORE THING...
+        </button>
+
+    </div>
+
+
+    <!-- SECRET REVEAL -->
+
+    <div class="secret" id="secret">
+
+        <div class="secret-box">
+
+            <h2>💗 A Little Message For You</h2>
+
+            <p>
+                You deserve all the happiness,
+                laughter, adventures and love in the world.
+
+                <br><br>
+
+                Thank you for being my favourite
+                person to laugh with, annoy,
+                cuddle and make memories with. 🥹💕
+
+                <br><br>
+
+                This little island may be digital...
+
+                <br>
+
+                but the love behind it is very real. ❤️
+
+                <br><br>
+
+                <strong>
+                    Happy Birthday, my love! 🎂✨
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+   
+<button class="return-btn" onclick="goBack()">
+    🏝️ ← Return to Birthday Island
+</button>
+
+
+</div>
+
+
+<script>
+
+/* =========================
+   OPEN PRESENT
+========================= */
+
+const gift = document.getElementById("gift");
+const openBtn = document.getElementById("openBtn");
+const message = document.getElementById("message");
+const nextBtn = document.getElementById("nextBtn");
+const secret = document.getElementById("secret");
+const subtitle = document.getElementById("subtitle");
+const giftArea = document.getElementById("giftArea");
+
+
+openBtn.addEventListener("click", function() {
+
+    gift.classList.add("open");
+
+    createConfetti();
+
+    setTimeout(() => {
+
+        giftArea.style.display = "none";
+        openBtn.style.display = "none";
+
+        subtitle.innerHTML =
+            "A special surprise just for you 💗";
+
+        message.classList.add("show");
+
+    }, 700);
+
+});
+
+
+/* =========================
+   SECOND REVEAL
+========================= */
+
+nextBtn.addEventListener("click", function() {
+
+    message.style.display = "none";
+
+    secret.classList.add("show");
+
+    createConfetti();
+
+});
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti() {
+
+    const symbols = [
+        "💗",
+        "✨",
+        "💖",
+        "🌸",
+        "⭐",
+        "🎀",
+        "💕"
+    ];
+
+    for (let i = 0; i < 35; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.classList.add("confetti");
+
+        confetti.innerHTML =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
+        confetti.style.animationDelay =
+            Math.random() * 1.5 + "s";
+
+        confetti.style.fontSize =
+            (12 + Math.random() * 14) + "px";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 4500);
+
+    }
+
+}
+
+
+/* =========================
+   RETURN TO ISLAND MAP
+========================= */
+
+
+function goBack() {
+    window.location.href = "island-map.html";
+}
+
+
+
+</script>
+
+</body>
+</html>
+```

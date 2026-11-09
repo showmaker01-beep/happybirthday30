@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Isle Airport ✈️</title>
+
+
+<style>
+
+/* =========================
+   FONTS
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Comic+Neue:wght@700&display=swap');
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-family: 'Baloo 2', cursive;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b5ead7,
+            #ffd3b6,
+            #c7ceea
+        );
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+.float {
+
+    position: absolute;
+
+    font-size: 35px;
+
+    animation: float 4s infinite ease-in-out;
+
+    pointer-events: none;
+}
+
+
+.star {
+
+    top: 10%;
+
+    left: 15%;
+}
+
+
+.cloud {
+
+    top: 20%;
+
+    right: 15%;
+}
+
+
+.tree {
+
+    bottom: 10%;
+
+    left: 10%;
+}
+
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   AIRPORT CONTAINER
+========================= */
+
+.airport {
+
+    width: 450px;
+
+    max-width: 90%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    background: #88c9a1;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+
+    border-radius: 30px 30px 0 0;
+
+    box-shadow:
+        0 8px 15px rgba(0,0,0,0.12);
+}
+
+
+.header h1 {
+
+    font-family: 'Comic Neue', cursive;
+
+    font-size: 32px;
+
+    margin-bottom: 5px;
+}
+
+
+.header p {
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.card {
+
+    background: #fffaf0;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 0 0 30px 30px;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.2);
+}
+
+
+.card h2 {
+
+    color: #4b7f52;
+
+    font-size: 30px;
+
+    margin-bottom: 5px;
+}
+
+
+.intro {
+
+    color: #777;
+
+    margin: 15px 0 25px;
+
+    line-height: 1.5;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   QUIZ QUESTIONS
+========================= */
+
+.question {
+
+    display: none;
+}
+
+
+.question.active {
+
+    display: block;
+
+    animation: appear 0.5s ease;
+}
+
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.8);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+.question h3 {
+
+    color: #555;
+
+    font-size: 20px;
+
+    margin-bottom: 20px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   ANSWER BUTTONS
+========================= */
+
+.answer-button {
+
+    width: 90%;
+
+    padding: 15px;
+
+    margin: 8px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #ffd166;
+
+    font-family: 'Baloo 2', cursive;
+
+    font-size: 18px;
+
+    color: #5b4636;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow: 0 4px #e5aa3a;
+}
+
+
+.answer-button:hover {
+
+    transform: translateY(-4px);
+
+    background: #ffbf3f;
+
+    box-shadow: 0 7px #e5aa3a;
+}
+
+
+.answer-button:active {
+
+    transform: translateY(2px);
+
+    box-shadow: 0 2px #e5aa3a;
+}
+
+
+/* =========================
+   SUCCESS SCREEN
+========================= */
+
+.success {
+
+    display: none;
+
+    color: #4b7f52;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    animation: successPop 0.6s ease;
+}
+
+
+@keyframes successPop {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.7);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+.success-title {
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   MINI BOARDING PASS
+========================= */
+
+.pass {
+
+    background: #fff1b6;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    margin-top: 20px;
+
+    border: 3px dashed #e7c85c;
+}
+
+
+.pass p {
+
+    font-size: 16px;
+
+    color: #555;
+
+    margin: 8px;
+}
+
+
+/* =========================
+   ENTER BIRTHDAY ISLE BUTTON
+========================= */
+
+.island-link {
+
+    display: block;
+
+    text-decoration: none;
+
+    margin-top: 20px;
+}
+
+
+.continue {
+
+    width: 90%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 25px;
+
+    background: #88c9a1;
+
+    color: white;
+
+    font-family: 'Baloo 2', cursive;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px #5ca57c;
+
+    transition: 0.3s;
+}
+
+
+.continue:hover {
+
+    transform: translateY(-4px);
+
+    background: #70b88d;
+
+    box-shadow: 0 8px #5ca57c;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .airport {
+
+        width: 92%;
+
+    }
+
+
+    .header h1 {
+
+        font-size: 26px;
+
+    }
+
+
+    .card {
+
+        padding: 22px;
+
+    }
+
+
+    .card h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    .question h3 {
+
+        font-size: 18px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     FLOATING DECORATIONS
+========================= -->
+
+<div class="float star">
+    ⭐
+</div>
+
+
+<div class="float cloud">
+    ☁️
+</div>
+
+
+<div class="float tree">
+    🌴
+</div>
+
+
+
+<!-- =========================
+     AIRPORT
+========================= -->
+
+<div class="airport">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>
+            ✈️ Birthday Isle Airport
+        </h1>
+
+        <p>
+            Passenger Check-In 🎫
+        </p>
+
+    </div>
+
+
+
+    <!-- MAIN CARD -->
+
+    <div class="card">
+
+
+        <h2>
+            🛂 Security Check
+        </h2>
+
+
+        <p class="intro">
+
+            Welcome passenger ❤️
+
+            <br>
+
+            Before boarding your flight to Birthday Isle,
+            complete your final check-in!
+
+        </p>
+
+
+
+        <!-- =========================
+             QUIZ
+        ========================= -->
+
+        <div id="quiz">
+
+
+            <!-- QUESTION 1 -->
+
+            <div class="question active">
+
+                <h3>
+                    1. Who is your favourite adventure partner? 🌎
+                </h3>
+
+
+                <button
+                    class="answer-button"
+                    onclick="nextQuestion()">
+
+                    ❤️ My favourite person
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="wrongAnswer()">
+
+                    A random NPC 😂
+
+                </button>
+
+            </div>
+
+
+
+            <!-- QUESTION 2 -->
+
+            <div class="question">
+
+                <h3>
+                    2. What gaming title have you unlocked? 🎮
+                </h3>
+
+
+                <button
+                    class="answer-button"
+                    onclick="nextQuestion()">
+
+                    ⭐ Legendary Gamer
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="wrongAnswer()">
+
+                    Beginner Player
+
+                </button>
+
+            </div>
+
+
+
+            <!-- QUESTION 3 -->
+
+            <div class="question">
+
+                <h3>
+                    3. Are you ready for your secret birthday adventure? 🏝️
+                </h3>
+
+
+                <button
+                    class="answer-button"
+                    onclick="nextQuestion()">
+
+                    YES! Let's fly ✈️
+
+                </button>
+
+
+                <button
+                    class="answer-button"
+                    onclick="wrongAnswer()">
+
+                    Maybe later 😴
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 BOARDING APPROVED
+            ========================= -->
+
+            <div class="success">
+
+
+                <div class="success-title">
+
+                    🎉 BOARDING APPROVED 🎉
+
+                </div>
+
+
+
+                <!-- MINI BOARDING PASS -->
+
+                <div class="pass">
+
+
+                    <p>
+                        ✈️ Flight: BIS2026
+                    </p>
+
+
+                    <p>
+                        🎫 Passenger:
+                        <br>
+                        Ratty Handsome Mark ❤️
+                    </p>
+
+
+                    <p>
+                        🌴 Destination:
+                        <br>
+                        Birthday Isle
+                    </p>
+
+
+                    <p>
+                        ⭐ Class:
+                        <br>
+                        Legendary Gamer
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =========================
+                     LINK TO ISLAND MAP
+                ========================= -->
+
+                <a
+                    href="island-map.html"
+                    class="island-link">
+
+                    <button class="continue">
+
+                        ✈️ Enter Birthday Isle
+
+                    </button>
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+let questions = document.querySelectorAll(".question");
+
+let current = 0;
+
+
+
+function nextQuestion() {
+
+    questions[current].classList.remove("active");
+
+    current++;
+
+
+    if (current < questions.length) {
+
+        questions[current].classList.add("active");
+
+    }
+
+    else {
+
+        document.querySelector(".success").style.display = "block";
+
+    }
+
+}
+
+
+
+function wrongAnswer() {
+
+    alert(
+        "❌ Boarding denied! Try again passenger 😆❤️"
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

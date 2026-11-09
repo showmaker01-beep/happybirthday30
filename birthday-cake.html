@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Cake ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Cherry+Bomb+One&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: "Comic Neue", cursive;
+
+    background:
+        linear-gradient(
+            180deg,
+            #bcecff 0%,
+            #d9f7ff 48%,
+            #fff5dc 100%
+        );
+
+    position: relative;
+    color: #718396;
+}
+
+
+/* =========================================================
+   SOFT BACKGROUND
+========================================================= */
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(255,255,255,.35);
+    border-radius: 50%;
+    top: -250px;
+    left: -180px;
+    filter: blur(10px);
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: rgba(255,220,235,.3);
+    border-radius: 50%;
+    bottom: -300px;
+    right: -180px;
+}
+
+
+/* =========================================================
+   CLOUDS
+========================================================= */
+
+.cloud {
+    position: absolute;
+    background: rgba(255,255,255,.72);
+    border-radius: 50px;
+    z-index: 1;
+    filter: blur(.2px);
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 65px;
+    height: 65px;
+    left: 25px;
+    bottom: 5px;
+}
+
+.cloud::after {
+    width: 90px;
+    height: 90px;
+    right: 25px;
+    bottom: 0;
+}
+
+.cloud.one {
+    width: 160px;
+    height: 45px;
+    top: 12%;
+    left: 5%;
+}
+
+.cloud.two {
+    width: 130px;
+    height: 38px;
+    top: 20%;
+    right: 4%;
+    transform: scale(.8);
+}
+
+.cloud.three {
+    width: 150px;
+    height: 40px;
+    bottom: 12%;
+    left: 7%;
+    transform: scale(.7);
+}
+
+
+/* =========================================================
+   FLOATING DECORATIONS
+========================================================= */
+
+.decor {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    animation: floaty 4s ease-in-out infinite;
+}
+
+.heart {
+    color: #ff9cbd;
+    font-size: 27px;
+}
+
+.small-heart {
+    color: #ffb9cf;
+    font-size: 18px;
+}
+
+.star {
+    color: #ffd86b;
+    font-size: 26px;
+}
+
+.sparkle {
+    color: white;
+    font-size: 30px;
+    text-shadow: 0 0 8px white;
+}
+
+.flower {
+    color: #ffb6cc;
+    font-size: 26px;
+}
+
+.decor.one {
+    top: 13%;
+    left: 11%;
+}
+
+.decor.two {
+    top: 25%;
+    left: 5%;
+    animation-delay: .8s;
+}
+
+.decor.three {
+    top: 14%;
+    right: 11%;
+    animation-delay: 1.3s;
+}
+
+.decor.four {
+    top: 31%;
+    right: 6%;
+    animation-delay: .4s;
+}
+
+.decor.five {
+    bottom: 23%;
+    left: 12%;
+    animation-delay: 1.8s;
+}
+
+.decor.six {
+    bottom: 25%;
+    right: 12%;
+    animation-delay: 1s;
+}
+
+.decor.seven {
+    top: 8%;
+    left: 43%;
+    animation-delay: 1.5s;
+}
+
+.decor.eight {
+    top: 20%;
+    right: 30%;
+    animation-delay: .5s;
+}
+
+@keyframes floaty {
+
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(7deg);
+    }
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.container {
+    position: relative;
+    z-index: 10;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /*
+       Everything moved UP
+    */
+    justify-content: flex-start;
+
+    padding-top: 4vh;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.title {
+    font-family: "Cherry Bomb One", cursive;
+
+    font-size: clamp(38px, 5vw, 58px);
+
+    color: #ff83aa;
+
+    text-align: center;
+
+    text-shadow:
+        3px 3px 0 white,
+        5px 6px 0 rgba(255,150,185,.2);
+
+    line-height: 1.05;
+
+    animation: titleBounce 3s ease-in-out infinite;
+}
+
+@keyframes titleBounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+
+.subtitle {
+    font-family: "Baloo 2", cursive;
+
+    font-size: 18px;
+
+    color: #718396;
+
+    margin-top: 3px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   LITTLE BIRTHDAY LABEL
+========================================================= */
+
+.cafe-label {
+    margin-top: 7px;
+
+    background: rgba(255,255,255,.75);
+
+    border: 2px solid white;
+
+    padding: 4px 17px;
+
+    border-radius: 30px;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: 13px;
+
+    color: #ff91b5;
+
+    box-shadow:
+        0 5px 15px rgba(130,160,180,.1);
+}
+
+
+/* =========================================================
+   CAKE AREA
+========================================================= */
+
+.cake-area {
+
+    position: relative;
+
+    width: 410px;
+    height: 315px;
+
+    max-width: 95vw;
+
+    margin-top: -2px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   CAKE SHADOW
+========================================================= */
+
+.cake-shadow {
+
+    position: absolute;
+
+    bottom: 21px;
+
+    width: 320px;
+    height: 25px;
+
+    background: rgba(130,150,165,.12);
+
+    border-radius: 50%;
+
+    filter: blur(5px);
+}
+
+
+/* =========================================================
+   CAKE STAND
+========================================================= */
+
+.stand-top {
+
+    position: absolute;
+
+    bottom: 27px;
+
+    width: 330px;
+    height: 42px;
+
+    background: linear-gradient(
+        #fff,
+        #ffe8f0
+    );
+
+    border: 4px solid white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 5px 0 #f4bdcf;
+}
+
+
+/* =========================================================
+   CAKE BODY
+========================================================= */
+
+.cake {
+
+    position: absolute;
+
+    bottom: 53px;
+
+    width: 275px;
+    height: 120px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffb5ce,
+            #ffc7da,
+            #ffb5ce
+        );
+
+    border: 5px solid white;
+
+    border-radius:
+        20px
+        20px
+        32px
+        32px;
+
+    box-shadow:
+        inset 0 -14px 0 rgba(222,135,170,.22),
+        0 7px 0 rgba(180,120,150,.12);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   CAKE TOP / ICING
+========================================================= */
+
+.icing {
+
+    position: absolute;
+
+    left: -5px;
+    top: -35px;
+
+    width: 275px;
+    height: 70px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff,
+            #fff5fa
+        );
+
+    border: 5px solid white;
+
+    border-radius:
+        28px
+        28px
+        35px
+        35px;
+
+    box-shadow:
+        0 5px 0 rgba(235,165,190,.15);
+
+    z-index: 6;
+}
+
+
+/* icing drips */
+
+.drip {
+
+    position: absolute;
+
+    width: 28px;
+    height: 38px;
+
+    background: #fff6fa;
+
+    border-radius:
+        0 0 18px 18px;
+}
+
+.drip:nth-child(1) {
+    left: 30px;
+    top: 31px;
+}
+
+.drip:nth-child(2) {
+    left: 92px;
+    top: 31px;
+    height: 48px;
+}
+
+.drip:nth-child(3) {
+    left: 157px;
+    top: 31px;
+    height: 35px;
+}
+
+.drip:nth-child(4) {
+    right: 28px;
+    top: 31px;
+    height: 45px;
+}
+
+
+/* =========================================================
+   CAKE TOP DECOR
+========================================================= */
+
+.sprinkle {
+
+    position: absolute;
+
+    width: 8px;
+    height: 16px;
+
+    border-radius: 5px;
+
+    transform: rotate(30deg);
+}
+
+.s1 {
+    left: 35px;
+    top: 17px;
+    background: #ff9fbd;
+}
+
+.s2 {
+    left: 75px;
+    top: 28px;
+    background: #ffd66d;
+    transform: rotate(-20deg);
+}
+
+.s3 {
+    left: 125px;
+    top: 15px;
+    background: #9bdcff;
+}
+
+.s4 {
+    right: 85px;
+    top: 25px;
+    background: #ff9fbd;
+}
+
+.s5 {
+    right: 40px;
+    top: 15px;
+    background: #ffd66d;
+}
+
+
+/* =========================================================
+   STRAWBERRIES
+========================================================= */
+
+.strawberry {
+
+    position: absolute;
+
+    width: 28px;
+    height: 32px;
+
+    background: #ff819f;
+
+    border-radius:
+        50%
+        50%
+        55%
+        55%;
+
+    top: -22px;
+
+    z-index: 12;
+}
+
+.strawberry::before {
+
+    content: "✦";
+
+    position: absolute;
+
+    color: #8bcf82;
+
+    font-size: 22px;
+
+    top: -15px;
+    left: 3px;
+}
+
+.strawberry::after {
+
+    content: "• • •";
+
+    position: absolute;
+
+    color: #ffe6a2;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    top: 8px;
+    left: 4px;
+}
+
+.strawberry.left {
+    left: 32px;
+}
+
+.strawberry.right {
+    right: 32px;
+}
+
+
+/* =========================================================
+   CAKE DOTS
+========================================================= */
+
+.dot {
+
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    z-index: 8;
+}
+
+.dot.a {
+    left: 30px;
+    bottom: 48px;
+    background: #ffd56e;
+}
+
+.dot.b {
+    left: 78px;
+    bottom: 70px;
+    background: #fff;
+}
+
+.dot.c {
+    left: 140px;
+    bottom: 42px;
+    background: #9edfff;
+}
+
+.dot.d {
+    right: 65px;
+    bottom: 67px;
+    background: #ffd56e;
+}
+
+.dot.e {
+    right: 27px;
+    bottom: 45px;
+    background: #fff;
+}
+
+
+/* =========================================================
+   CANDLES
+========================================================= */
+
+.candles {
+
+    position: absolute;
+
+    bottom: 165px;
+
+    display: flex;
+
+    gap: 28px;
+
+    z-index: 20;
+}
+
+.candle {
+
+    width: 19px;
+    height: 65px;
+
+    border-radius: 9px 9px 4px 4px;
+
+    border: 3px solid white;
+
+    position: relative;
+
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            #a8dcff 0px,
+            #a8dcff 8px,
+            #fff 8px,
+            #fff 16px
+        );
+
+    box-shadow:
+        0 3px 0 rgba(100,150,180,.12);
+}
+
+.candle:nth-child(2) {
+
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            #ffadc8 0px,
+            #ffadc8 8px,
+            #fff 8px,
+            #fff 16px
+        );
+}
+
+.candle:nth-child(3) {
+
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            #ffd36c 0px,
+            #ffd36c 8px,
+            #fff 8px,
+            #fff 16px
+        );
+}
+
+
+/* =========================================================
+   FLAMES
+========================================================= */
+
+.flame {
+
+    position: absolute;
+
+    width: 20px;
+    height: 30px;
+
+    left: 50%;
+    top: -36px;
+
+    transform: translateX(-50%);
+
+    background: #ffd45d;
+
+    border-radius:
+        50%
+        50%
+        50%
+        50%;
+
+    box-shadow:
+        0 0 10px #ffd45d,
+        0 0 25px rgba(255,210,80,.8);
+
+    animation: flame 0.18s infinite alternate;
+}
+
+.flame::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+    height: 15px;
+
+    background: #fff8b2;
+
+    border-radius: 50%;
+
+    left: 50%;
+    top: 8px;
+
+    transform: translateX(-50%);
+}
+
+@keyframes flame {
+
+    from {
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(-3deg);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            scale(1.1)
+            rotate(3deg);
+    }
+}
+
+
+/* =========================================================
+   SMOKE
+========================================================= */
+
+.smoke {
+
+    display: none;
+
+    position: absolute;
+
+    top: -42px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #aeb9c2;
+
+    font-size: 27px;
+}
+
+.candle.off .flame {
+    display: none;
+}
+
+.candle.off .smoke {
+    display: block;
+
+    animation:
+        smokeUp 1.5s ease-out forwards;
+}
+
+@keyframes smokeUp {
+
+    0% {
+        opacity: 0;
+        transform:
+            translate(-50%,10px)
+            scale(.5);
+    }
+
+    40% {
+        opacity: .8;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%,-35px)
+            scale(1.4);
+    }
+}
+
+
+/* =========================================================
+   MINI HEARTS AROUND CAKE
+========================================================= */
+
+.cake-heart {
+
+    position: absolute;
+
+    color: #ff94b7;
+
+    font-size: 17px;
+
+    animation:
+        tinyFloat 2.5s ease-in-out infinite;
+}
+
+.ch1 {
+    left: 18px;
+    top: 120px;
+}
+
+.ch2 {
+    right: 12px;
+    top: 145px;
+    animation-delay: .7s;
+}
+
+.ch3 {
+    left: 70px;
+    bottom: 28px;
+    animation-delay: 1.2s;
+}
+
+.ch4 {
+    right: 70px;
+    bottom: 35px;
+    animation-delay: .4s;
+}
+
+@keyframes tinyFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   INSTRUCTIONS
+========================================================= */
+
+.instructions {
+
+    margin-top: -5px;
+
+    background: rgba(255,255,255,.82);
+
+    border:
+        3px solid
+        rgba(255,255,255,.95);
+
+    border-radius: 30px;
+
+    padding: 9px 22px;
+
+    text-align: center;
+
+    font-family: "Baloo 2", cursive;
+
+    color: #718396;
+
+    font-size: 16px;
+
+    box-shadow:
+        0 7px 20px rgba(100,150,180,.12);
+}
+
+.instructions strong {
+    color: #ff86ac;
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+button {
+
+    border: none;
+
+    margin-top: 10px;
+
+    padding: 9px 23px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            #ffabc6,
+            #ff91b4
+        );
+
+    color: white;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 #df7d9e,
+        0 8px 18px rgba(220,120,155,.18);
+
+    transition: .2s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #df7d9e;
+}
+
+
+/* =========================================================
+   CAT
+========================================================= */
+
+.cat {
+
+    position: absolute;
+
+    bottom: 45px;
+    right: 8%;
+
+    font-size: 48px;
+
+    z-index: 8;
+
+    animation:
+        catBounce 3s ease-in-out infinite;
+}
+
+@keyframes catBounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* =========================================================
+   WISH POPUP
+========================================================= */
+
+.wish-message {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    background:
+        rgba(255,245,250,.78);
+
+    backdrop-filter: blur(7px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: .4s;
+}
+
+.wish-message.show {
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+.message-box {
+
+    width: 430px;
+    max-width: 88%;
+
+    padding: 34px;
+
+    text-align: center;
+
+    background: white;
+
+    border:
+        5px solid
+        #ffd0df;
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(180,120,150,.2);
+
+    animation:
+        popup .55s ease;
+}
+
+@keyframes popup {
+
+    0% {
+        transform:
+            scale(.5)
+            rotate(-5deg);
+    }
+
+    80% {
+        transform:
+            scale(1.05)
+            rotate(2deg);
+    }
+
+    100% {
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+.message-box h2 {
+
+    font-family: "Cherry Bomb One", cursive;
+
+    color: #ff83aa;
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+.message-box p {
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    color: #718396;
+}
+
+.message-cat {
+
+    font-size: 48px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti {
+
+    position: fixed;
+
+    top: -30px;
+
+    z-index: 200;
+
+    font-size: 18px;
+
+    animation:
+        fall 3.2s linear forwards;
+}
+
+@keyframes fall {
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+    }
+}
+
+
+/* =========================================================
+   RETURN
+========================================================= */
+
+.return {
+
+    position: fixed;
+
+    bottom: 12px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 30;
+}
+
+.return a {
+
+    text-decoration: none;
+
+    color: #718396;
+
+    background:
+        rgba(255,255,255,.78);
+
+    border:
+        2px solid white;
+
+    padding: 6px 17px;
+
+    border-radius: 20px;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(100,150,180,.1);
+
+    transition: .2s;
+}
+
+.return a:hover {
+
+    background: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding-top: 2vh;
+    }
+
+    .title {
+        font-size: 39px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .cake-area {
+        transform: scale(.82);
+        transform-origin: top center;
+        height: 270px;
+    }
+
+    .instructions {
+        margin-top: -35px;
+        font-size: 14px;
+        max-width: 88%;
+    }
+
+    .cat {
+        display: none;
+    }
+
+    .return {
+        bottom: 7px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     BACKGROUND CLOUDS
+======================================================= -->
+
+<div class="cloud one"></div>
+<div class="cloud two"></div>
+<div class="cloud three"></div>
+
+
+<!-- ======================================================
+     FLOATING DECOR
+======================================================= -->
+
+<div class="decor heart one">♥</div>
+<div class="decor star two">✦</div>
+<div class="decor sparkle three">✧</div>
+<div class="decor flower four">✿</div>
+
+<div class="decor small-heart five">♡</div>
+<div class="decor star six">★</div>
+<div class="decor sparkle seven">✦</div>
+<div class="decor flower eight">❀</div>
+
+
+<!-- ======================================================
+     MAIN
+======================================================= -->
+
+<div class="container">
+
+
+    <h1 class="title">
+        Make a Wish!
+    </h1>
+
+
+    <p class="subtitle">
+        A little birthday cake made just for you ♡
+    </p>
+
+
+    <div class="cafe-label">
+        ♡ Birthday Café ♡
+    </div>
+
+
+    <!-- ==================================================
+         CAKE
+    =================================================== -->
+
+    <div class="cake-area">
+
+
+        <!-- shadow -->
+
+        <div class="cake-shadow"></div>
+
+
+        <!-- cake stand -->
+
+        <div class="stand-top"></div>
+        <div class="stand-neck"></div>
+        <div class="stand-base"></div>
+
+
+        <!-- cake -->
+
+        <div class="cake">
+
+
+            <!-- frosting -->
+
+            <div class="icing">
+
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+                <div class="drip"></div>
+
+
+                <!-- sprinkles -->
+
+                <span class="sprinkle s1"></span>
+                <span class="sprinkle s2"></span>
+                <span class="sprinkle s3"></span>
+                <span class="sprinkle s4"></span>
+                <span class="sprinkle s5"></span>
+
+
+                <!-- strawberries -->
+
+                <div class="strawberry left"></div>
+                <div class="strawberry right"></div>
+
+            </div>
+
+
+            <!-- cake decorations -->
+
+            <div class="dot a"></div>
+            <div class="dot b"></div>
+            <div class="dot c"></div>
+            <div class="dot d"></div>
+            <div class="dot e"></div>
+
+
+        </div>
+
+
+        <!-- candles -->
+
+        <div class="candles">
+
+            <div class="candle">
+
+                <div class="flame"></div>
+
+                <div class="smoke">
+                    〰
+                </div>
+
+            </div>
+
+
+            <div class="candle">
+
+                <div class="flame"></div>
+
+                <div class="smoke">
+                    〰
+                </div>
+
+            </div>
+
+
+            <div class="candle">
+
+                <div class="flame"></div>
+
+                <div class="smoke">
+                    〰
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- tiny floating hearts -->
+
+        <div class="cake-heart ch1">♡</div>
+        <div class="cake-heart ch2">♥</div>
+        <div class="cake-heart ch3">♡</div>
+        <div class="cake-heart ch4">♥</div>
+
+
+    </div>
+
+
+    <!-- cute cat -->
+
+    <div class="cat">
+        ฅ^•ﻌ•^ฅ
+    </div>
+
+
+    <!-- instructions -->
+
+    <div class="instructions" id="instruction">
+
+        🌬️ <strong>Make a wish!</strong>
+
+        <br>
+
+        Blow into your microphone
+        to put out the candles ♡
+
+    </div>
+
+
+    <!-- backup button -->
+
+    <button id="blowButton">
+        🌬️ Blow Out Candles
+    </button>
+
+
+</div>
+
+
+<!-- ======================================================
+     WISH POPUP
+======================================================= -->
+
+<div class="wish-message" id="wishMessage">
+
+    <div class="message-box">
+
+        <h2>
+            Wish Made! ✨
+        </h2>
+
+
+        <p>
+
+            The candles are out! 💗
+
+            <br><br>
+
+            May your birthday wish come true
+            and your year be filled with
+            happiness, love, laughter
+            and lots of beautiful memories.
+            And I hope that we get to create 
+            loads of new memories! ♡
+
+        </p>
+
+
+        <div class="message-cat">
+            ฅ^•ﻌ•^ฅ
+        </div>
+
+
+        <button onclick="closeWish()">
+            ♡ Back to the Cake
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ======================================================
+     RETURN
+======================================================= -->
+
+<div class="return">
+
+    <a href="island-map.html" class="back-btn">
+        ♡ Return to Birthday Isle ♡
+    </a>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const candles =
+    document.querySelectorAll(".candle");
+
+const blowButton =
+    document.getElementById("blowButton");
+
+const instruction =
+    document.getElementById("instruction");
+
+const wishMessage =
+    document.getElementById("wishMessage");
+
+let candlesBlown = false;
+
+
+/* =========================================================
+   BLOW OUT CANDLES
+========================================================= */
+
+function blowCandles() {
+
+    if (candlesBlown) return;
+
+    candlesBlown = true;
+
+
+    candles.forEach((candle, index) => {
+
+        setTimeout(() => {
+
+            candle.classList.add("off");
+
+        }, index * 300);
+
+    });
+
+
+    setTimeout(() => {
+
+        instruction.innerHTML =
+            "✨ Your birthday wish has been sent into the universe! ✨";
+
+
+        blowButton.style.display = "none";
+
+
+        createConfetti();
+
+
+        setTimeout(() => {
+
+            wishMessage.classList.add("show");
+
+        }, 900);
+
+    }, 1200);
+
+}
+
+
+/* =========================================================
+   BUTTON BACKUP
+========================================================= */
+
+blowButton.addEventListener(
+    "click",
+    blowCandles
+);
+
+
+/* =========================================================
+   MICROPHONE
+========================================================= */
+
+async function startMicrophone() {
+
+    try {
+
+        const stream =
+            await navigator.mediaDevices.getUserMedia({
+                audio: true
+            });
+
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+
+        const audioContext =
+            new AudioContext();
+
+
+        const analyser =
+            audioContext.createAnalyser();
+
+
+        const microphone =
+            audioContext.createMediaStreamSource(
+                stream
+            );
+
+
+        microphone.connect(analyser);
+
+
+        analyser.fftSize = 512;
+
+
+        const dataArray =
+            new Uint8Array(
+                analyser.frequencyBinCount
+            );
+
+
+        function detectBlow() {
+
+            if (candlesBlown) return;
+
+
+            analyser.getByteTimeDomainData(
+                dataArray
+            );
+
+
+            let sum = 0;
+
+
+            for (
+                let i = 0;
+                i < dataArray.length;
+                i++
+            ) {
+
+                const value =
+                    (dataArray[i] - 128) / 128;
+
+
+                sum += value * value;
+
+            }
+
+
+            const volume =
+                Math.sqrt(
+                    sum / dataArray.length
+                );
+
+
+            /*
+               Blow sensitivity.
+
+               Higher = harder blow required.
+               Lower = easier to activate.
+            */
+
+            if (volume > 0.16) {
+
+                blowCandles();
+
+
+                stream
+                    .getTracks()
+                    .forEach(
+                        track => track.stop()
+                    );
+
+                return;
+
+            }
+
+
+            requestAnimationFrame(
+                detectBlow
+            );
+
+        }
+
+
+        detectBlow();
+
+
+    } catch (error) {
+
+        console.log(
+            "Microphone permission unavailable."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   START MICROPHONE
+========================================================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        if (
+            navigator.mediaDevices &&
+            navigator.mediaDevices.getUserMedia
+        ) {
+
+            startMicrophone();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+function createConfetti() {
+
+    const shapes = [
+        "♥",
+        "♡",
+        "★",
+        "✦",
+        "✿",
+        "❀"
+    ];
+
+
+    for (
+        let i = 0;
+        i < 65;
+        i++
+    ) {
+
+        const piece =
+            document.createElement("div");
+
+
+        piece.classList.add(
+            "confetti"
+        );
+
+
+        piece.innerHTML =
+            shapes[
+                Math.floor(
+                    Math.random()
+                    * shapes.length
+                )
+            ];
+
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+
+        piece.style.animationDelay =
+            Math.random() * 1.2 + "s";
+
+
+        piece.style.fontSize =
+            (12 + Math.random() * 14)
+            + "px";
+
+
+        document.body.appendChild(
+            piece
+        );
+
+
+        setTimeout(
+            () => piece.remove(),
+            4500
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   CLOSE WISH
+========================================================= */
+
+function closeWish() {
+
+    wishMessage.classList.remove(
+        "show"
+    );
+
+}
+
+
+/* =========================================================
+   CLICK CAKE = SPARKLES
+========================================================= */
+
+document
+    .querySelector(".cake-area")
+    .addEventListener(
+        "click",
+        function(event) {
+
+
+            for (
+                let i = 0;
+                i < 7;
+                i++
+            ) {
+
+                const sparkle =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                sparkle.innerHTML = "✦";
+
+
+                sparkle.style.position =
+                    "fixed";
+
+
+                sparkle.style.left =
+                    event.clientX + "px";
+
+
+                sparkle.style.top =
+                    event.clientY + "px";
+
+
+                sparkle.style.color =
+                    "#ffd76b";
+
+
+                sparkle.style.fontSize =
+                    "20px";
+
+
+                sparkle.style.pointerEvents =
+                    "none";
+
+
+                sparkle.style.zIndex =
+                    "300";
+
+
+                document.body.appendChild(
+                    sparkle
+                );
+
+
+                const x =
+                    (Math.random() - .5)
+                    * 140;
+
+
+                const y =
+                    (Math.random() - .5)
+                    * 120;
+
+
+                sparkle.animate(
+
+                    [
+                        {
+                            transform:
+                                "translate(0,0) scale(1)",
+                            opacity: 1
+                        },
+
+                        {
+                            transform:
+                                `translate(${x}px,${y}px) scale(0)`,
+                            opacity: 0
+                        }
+                    ],
+
+                    {
+                        duration: 750,
+                        easing: "ease-out"
+                    }
+
+                );
+
+
+                setTimeout(
+                    () => sparkle.remove(),
+                    750
+                );
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
+```

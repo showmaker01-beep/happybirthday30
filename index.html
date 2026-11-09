@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Isle 🌴</title>
+
+<!-- Cute Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Cherry+Bomb+One&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   PAGE BACKGROUND
+========================= */
+
+body {
+    height:105vh;
+    background: linear-gradient(
+        #BFE9FF,
+        #FFF4D6
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Comic Neue', cursive;
+}
+
+
+/* =========================
+   DECORATIONS
+========================= */
+
+.decor {
+    position: absolute;
+    font-size: 50px;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+.cloud1 {
+    top: 70px;
+    left: 100px;
+}
+
+.cloud2 {
+    top: 150px;
+    right: 120px;
+}
+
+.star1 {
+    top: 100px;
+    right: 300px;
+}
+
+.star2 {
+    bottom: 150px;
+    left: 150px;
+}
+
+.flower1 {
+    bottom: 45px;
+    right: 296px;
+}
+
+.flower2 {
+    bottom: 45px;
+    left: 100px;
+}
+
+.gift {
+    bottom: 66px;
+    right: 55px;
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+
+.main-container {
+    position: relative;
+    z-index: 2;
+}
+
+.welcome-card {
+    background: rgba(255,255,255,0.9);
+    width: 500px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 40px;
+    border: 5px solid white;
+    box-shadow:
+    0 15px 30px rgba(0,0,0,0.15);
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+h1 {
+    font-family: 'Cherry Bomb One', cursive;
+    font-size: 50px;
+    color: #6EC6FF;
+    line-height: 1.2;
+}
+
+h2 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 32px;
+    color: #7BBE7B;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 22px;
+    color: #5B4636;
+    margin: 20px 0 30px;
+}
+
+
+/* =========================
+   START BUTTON
+========================= */
+
+.start-button {
+    font-family: 'Baloo 2', cursive;
+    font-size: 28px;
+    background: #87CEEB;
+    color: white;
+    padding: 15px 50px;
+    border-radius: 60px;
+    border: 4px solid white;
+    cursor: pointer;
+    box-shadow:
+    0 7px #5AAED6;
+    transition: 0.2s;
+}
+
+
+.start-button:hover {
+    transform: translateY(5px);
+    box-shadow:
+    0 2px #5AAED6;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Cute Floating Decorations -->
+
+<div class="decor cloud1">☁️</div>
+<div class="decor cloud2">☁️</div>
+<div class="decor star1">⭐</div>
+<div class="decor star2">✨</div>
+<div class="decor flower1">🌸</div>
+<div class="decor flower2">🌼</div>
+<div class="decor gift">🎁</div>
+
+
+<!-- Birthday Page -->
+
+<div class="main-container">
+    <div class="welcome-card">
+        <h1>
+            HAPPY BIRTHDAY
+            <br>
+            MY LOVE ❤️
+        </h1>
+
+        <h2>
+            Welcome to Birthday Isle 🌴
+        </h2>
+
+        <p>
+            A special adventure awaits...
+            <br>
+            Are you ready to start?
+        </p>
+
+
+        <a href="passport.html">
+            <button class="start-button">
+                🎮 START GAME
+            </button>
+        </a>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Memories 📸</title>
+
+<!-- Cute Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Cherry+Bomb+One&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Comic Neue", sans-serif;
+
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.8) 0 4px, transparent 5px),
+        radial-gradient(circle at 80% 15%, rgba(255,255,255,.7) 0 3px, transparent 4px),
+        linear-gradient(#bcecff, #fff4d6);
+
+    color: #624f68;
+}
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+.decor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatAround 5s ease-in-out infinite;
+}
+
+.heart1 {
+    top: 15%;
+    left: 6%;
+    font-size: 22px;
+}
+
+.heart2 {
+    top: 30%;
+    right: 7%;
+    font-size: 18px;
+    animation-delay: 1s;
+}
+
+.star1 {
+    top: 70%;
+    left: 5%;
+    font-size: 20px;
+    animation-delay: 2s;
+}
+
+.star2 {
+    top: 75%;
+    right: 8%;
+    font-size: 23px;
+    animation-delay: 1.5s;
+}
+
+@keyframes floatAround {
+
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+    padding: 40px 20px 15px;
+}
+
+header h1 {
+    margin: 0;
+
+    font-family: "Cherry Bomb One", cursive;
+    font-size: clamp(42px, 7vw, 72px);
+
+    color: #ff7fa8;
+
+    text-shadow:
+        3px 3px 0 white,
+        6px 6px 0 rgba(255, 173, 198, .35);
+}
+
+.subtitle {
+    margin-top: 5px;
+
+    font-family: "Baloo 2", sans-serif;
+    font-size: 19px;
+}
+
+.small-note {
+    margin-top: 4px;
+    font-size: 14px;
+    opacity: .75;
+}
+
+/* =========================
+   CATEGORY BUTTONS
+========================= */
+
+.categories {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin: 15px auto 25px;
+    padding: 0 20px;
+}
+
+.category {
+    border: 2px solid white;
+    background: rgba(255,255,255,.72);
+
+    padding: 9px 18px;
+    border-radius: 30px;
+
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 700;
+    color: #795b77;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(130,100,140,.12);
+
+    transition: .25s;
+}
+
+.category:hover,
+.category.active {
+    background: #ffb8cf;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+
+    position: relative;
+    z-index: 2;
+
+    width: min(1100px, 92%);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 35px 25px;
+
+    padding-bottom: 100px;
+}
+
+/* =========================
+   POLAROID
+========================= */
+
+.photo-card {
+
+    background: white;
+
+    padding: 12px 12px 20px;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 8px 18px rgba(82,70,90,.18);
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    position: relative;
+}
+
+.photo-card:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.photo-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.photo-card:hover {
+
+    transform:
+        rotate(0deg)
+        translateY(-10px)
+        scale(1.03);
+
+    box-shadow:
+        0 16px 28px rgba(82,70,90,.25);
+
+    z-index: 5;
+}
+
+.photo {
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd8e6,
+            #ccefff
+        );
+}
+
+/* Photo caption */
+
+.caption {
+
+    text-align: center;
+
+    margin-top: 12px;
+
+    font-family: "Cherry Bomb One", cursive;
+
+    font-size: 17px;
+
+    color: #725b76;
+}
+
+/* Little sticker */
+
+.sticker {
+
+    position: absolute;
+
+    top: -13px;
+    right: -12px;
+
+    font-size: 25px;
+
+    transform: rotate(10deg);
+}
+
+/* =========================
+   SECRET MEMORY
+========================= */
+
+.secret {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd6e5,
+            #fff0b9
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    color: #79536e;
+
+    font-family: "Baloo 2", sans-serif;
+
+    text-align: center;
+
+    font-weight: 700;
+}
+
+.secret-icon {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+/* =========================
+   BOTTOM BUTTON
+========================= */
+
+.return-area {
+
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    padding: 10px 20px 45px;
+}
+
+.return-button {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    background: white;
+
+    color: #765a78;
+
+    border: 3px solid #ffb4cc;
+
+    border-radius: 30px;
+
+    padding: 12px 25px;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    box-shadow: 0 6px 12px rgba(120,90,120,.15);
+
+    transition: .25s;
+}
+
+.return-button:hover {
+
+    background: #ffb4cc;
+
+    color: white;
+
+    transform: translateY(-4px);
+}
+
+/* =========================
+   CAT
+========================= */
+
+.cat {
+
+    position: fixed;
+
+    bottom: 22px;
+    left: 25px;
+
+    font-size: 30px;
+
+    z-index: 10;
+
+    animation: catWalk 4s ease-in-out infinite;
+
+    cursor: pointer;
+}
+
+@keyframes catWalk {
+
+    0%,100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(12px);
+    }
+}
+
+/* =========================
+   POPUP
+========================= */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(70,55,80,.65);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 100;
+}
+
+.overlay.show {
+    display: flex;
+}
+
+.modal {
+
+    background: #fffdfb;
+
+    width: min(600px, 95%);
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,.3);
+
+    position: relative;
+
+    animation: pop .3s ease;
+}
+
+@keyframes pop {
+
+    from {
+        transform: scale(.75);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal img {
+
+    width: 100%;
+
+    max-height: 65vh;
+
+    object-fit: contain;
+
+    display: block;
+
+    border-radius: 8px;
+}
+
+.modal-text {
+
+    text-align: center;
+
+    padding: 10px 5px 5px;
+
+}
+
+.modal-text h2 {
+
+    margin: 5px 0;
+
+    font-family: "Cherry Bomb One", cursive;
+
+    color: #ff7fa8;
+}
+
+.modal-text p {
+
+    margin: 5px;
+
+    font-size: 16px;
+}
+
+.close {
+
+    position: absolute;
+
+    right: 10px;
+    top: 7px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #ff7fa8;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,.15);
+
+    z-index: 3;
+}
+
+/* =========================
+   MEMORY COLLECTED
+========================= */
+
+.collected {
+
+    position: fixed;
+
+    top: 25px;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(-120px);
+
+    background: white;
+
+    border: 3px solid #ffb4cc;
+
+    border-radius: 30px;
+
+    padding: 12px 22px;
+
+    font-family: "Baloo 2", sans-serif;
+
+    font-weight: 700;
+
+    box-shadow: 0 7px 20px rgba(0,0,0,.15);
+
+    z-index: 200;
+
+    transition: .5s;
+}
+
+.collected.show {
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px) {
+
+    header {
+        padding-top: 28px;
+    }
+
+    .gallery {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 20px 14px;
+    }
+
+    .photo-card {
+        padding: 8px 8px 14px;
+    }
+
+    .caption {
+        font-size: 14px;
+    }
+
+    .cat {
+        font-size: 25px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating decorations -->
+
+<div class="decor heart1">♡</div>
+<div class="decor heart2">♥</div>
+<div class="decor star1">✦</div>
+<div class="decor star2">✧</div>
+
+<!-- Memory notification -->
+
+<div class="collected" id="collected">
+    💗 Memory Collected!
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+    <h1>Our Memories</h1>
+
+    <div class="subtitle">
+        A little collection of us ♡
+    </div>
+
+    <div class="small-note">
+        Click a memory to open it ✨
+    </div>
+
+</header>
+
+<!-- CATEGORIES -->
+
+<div class="categories">
+
+    <button class="category active" onclick="filterPhotos('all', this)">
+        🌸 All
+    </button>
+
+    <button class="category" onclick="filterPhotos('us', this)">
+        💗 Us
+    </button>
+
+    <button class="category" onclick="filterPhotos('adventures', this)">
+        ✈️ Adventures
+    </button>
+
+    <button class="category" onclick="filterPhotos('silly', this)">
+        🐱 Silly Us
+    </button>
+
+    <button class="category" onclick="filterPhotos('favourite', this)">
+        ⭐ Favourites
+    </button>
+
+</div>
+
+<!-- GALLERY -->
+
+<div class="gallery" id="gallery">
+
+    <!-- PHOTO 1 -->
+
+    <div class="photo-card"
+         data-category="us"
+         onclick="openPhoto(
+         'photos/photo1.jpg',
+         'My favourite person 💗',
+         'One of those little moments I wish I could keep forever.'
+         )">
+
+        <div class="sticker">💗</div>
+
+        <img
+            class="photo"
+            src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.1&permmsgid=msg-a:s:8568510166089155027&th=1a1a1b675949db53&view=att&disp=safe&realattid=7fa529d825275a6_0.1&zw"
+            alt="Our memory">
+
+        <div class="caption">
+            My favourite person ♡
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO 2 -->
+
+    <div class="photo-card"
+         data-category="adventures"
+         onclick="openPhoto(
+         'photos/photo2.jpg',
+         'Our little adventure ✈️',
+         'Another place, another memory, another story for us.'
+         )">
+
+        <div class="sticker">✈️</div>
+
+        <img
+            class="photo"
+            src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.2&permmsgid=msg-a:s:8568510166089155027&th=1a1a1b675949db53&view=att&disp=safe&realattid=d24c4d73c77c1858_0.1&zw"
+            alt="Adventure">
+
+        <div class="caption">
+            Our adventures
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO 3 -->
+
+    <div class="photo-card"
+         data-category="silly"
+         onclick="openPhoto(
+         'photos/photo3.jpg',
+         'Two idiots in love 😂',
+         'Honestly... what would I do without our silly moments?'
+         )">
+
+        <div class="sticker">😂</div>
+
+        <img
+            class="photo"
+            src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.3&permmsgid=msg-a:s:8568510166089155027&th=1a1a1b675949db53&view=att&disp=safe&realattid=7e3967662972386a_0.1&zw"
+            alt="Silly memory">
+
+        <div class="caption">
+            Two idiots 😂
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO 4 -->
+
+    <div class="photo-card"
+         data-category="favourite"
+         onclick="openPhoto(
+         'photos/photo4.jpg',
+         'A favourite memory ⭐',
+         'This one will always have a special little place in my heart.'
+         )">
+
+        <div class="sticker">⭐</div>
+
+        <img
+            class="photo"
+            src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.4&permmsgid=msg-a:s:8568510166089155027&th=1a1a1b675949db53&view=att&disp=safe&realattid=2406fcca5a877f61_0.1&zw"
+            alt="Favourite memory">
+
+        <div class="caption">
+            Favourite moment
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO 5 -->
+
+    <div class="photo-card"
+         data-category="us"
+         onclick="openPhoto(
+         'photos/photo5.jpg',
+         'Just us 🥹',
+         'Nothing fancy. Just one of my favourite people to be around.'
+         )">
+
+        <div class="sticker">🌷</div>
+
+        <img
+            class="photo"
+            src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.5&permmsgid=msg-a:s:8568510166089155027&th=1a1a1b675949db53&view=att&disp=safe&realattid=3c71e07219ea76e1_0.1&zw"
+            alt="Memory">
+
+        <div class="caption">
+            Just us
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO 6 -->
+
+    <div class="photo-card"
+         data-category="adventures"
+         onclick="openPhoto(
+         'photos/photo6.jpg',
+         'Another chapter 🌎',
+         'Here is to all the places we have been and all the places still waiting for us.'
+         )">
+
+        <div class="sticker">🌎</div>
+
+        <img
+            class="photo"
+            src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.6&permmsgid=msg-a:s:8568510166089155027&th=1a1a1b675949db53&view=att&disp=safe&realattid=ddc9593773751efd_0.1&zw"
+            alt="Travel memory">
+
+        <div class="caption">
+            Another adventure
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO 7 -->
+
+    <div class="photo-card"
+         data-category="silly"
+         onclick="openPhoto(
+         'photos/photo7.jpg',
+         'Our chaotic era 🐱',
+         'Proof that we are incapable of behaving normally together.'
+         )">
+
+        <div class="sticker">🐾</div>
+
+        <img
+            class="photo"
+            src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.7&permmsgid=msg-a:s:8568510166089155027&th=1a1a1b675949db53&view=att&disp=safe&realattid=b246b19f9cb3a854_0.1&zw"
+            alt="Funny memory">
+
+        <div class="caption">
+            Our chaos
+        </div>
+
+    </div>
+
+
+    <!-- PHOTO 8 -->
+
+    <div class="photo-card"
+         data-category="favourite"
+         onclick="openPhoto(
+         'photos/photo8.jpg',
+         'Forever favourite 💕',
+         'If I could replay one day, this would be one of them.'
+         )">
+
+        <div class="sticker">💕</div>
+
+        <img
+            class="photo"
+            src="https://mail.google.com/mail/u/0?ui=2&ik=c412e19320&attid=0.8&permmsgid=msg-a:s:8568510166089155027&th=1a1a1b675949db53&view=att&disp=safe&realattid=dd7e3a107321c82d_0.1&zw"
+            alt="Favourite memory">
+
+        <div class="caption">
+            Forever favourite
+        </div>
+
+    </div>
+
+
+
+
+
+<!-- RETURN BUTTON -->
+
+<div class="return-area">
+
+    <a
+        href="island-map.html"
+        class="return-button">
+
+        🏝️ ← Return to Birthday Island
+
+    </a>
+
+</div>
+
+
+<!-- CAT -->
+
+<div
+    class="cat"
+    onclick="catMessage()"
+    title="Click me!">
+
+    🐱
+
+</div>
+
+
+<!-- PHOTO POPUP -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeOutside(event)">
+
+    <div class="modal">
+
+        <button
+            class="close"
+            onclick="closePhoto()">
+
+            ×
+
+        </button>
+
+        <img
+            id="modalImage"
+            src=""
+            alt="Memory">
+
+        <div class="modal-text">
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalDescription"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   OPEN PHOTO
+========================= */
+
+function openPhoto(image, title, description) {
+
+    document.getElementById("modalImage").src = image;
+
+    document.getElementById("modalTitle").innerText = title;
+
+    document.getElementById("modalDescription").innerText = description;
+
+    document.getElementById("overlay").classList.add("show");
+
+    showCollected();
+}
+
+
+/* =========================
+   CLOSE PHOTO
+========================= */
+
+function closePhoto() {
+
+    document
+        .getElementById("overlay")
+        .classList.remove("show");
+
+}
+
+
+function closeOutside(event) {
+
+    if(event.target.id === "overlay") {
+
+        closePhoto();
+
+    }
+
+}
+
+
+/* =========================
+   MEMORY POPUP
+========================= */
+
+function showCollected() {
+
+    const message =
+        document.getElementById("collected");
+
+    message.classList.add("show");
+
+    setTimeout(() => {
+
+        message.classList.remove("show");
+
+    }, 1800);
+
+}
+
+
+/* =========================
+   FILTER
+========================= */
+
+function filterPhotos(category, button) {
+
+    document
+        .querySelectorAll(".category")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+    button.classList.add("active");
+
+
+    document
+        .querySelectorAll(".photo-card")
+        .forEach(card => {
+
+            const cardCategory =
+                card.dataset.category;
+
+            if(
+                category === "all" ||
+                cardCategory === category
+            ) {
+
+                card.style.display = "block";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+}
+
+
+/* =========================
+   SECRET MEMORY
+========================= */
+
+function openSecret() {
+
+    openPhoto(
+        "photos/secret.jpg",
+        "You found the secret memory! 🔐💗",
+        "Some memories are too special to be displayed normally... so you had to find this one."
+    );
+
+}
+
+
+/* =========================
+   CAT MESSAGE
+========================= */
+
+function catMessage() {
+
+    const messages = [
+
+        "🐱 Meow! You found me!",
+
+        "🐾 The cat approves this memory.",
+
+        "💗 Psst... he is pretty cute.",
+
+        "✨ Keep exploring, birthday boy!",
+
+        "🐱 I know all your secrets..."
+
+    ];
+
+    const random =
+        messages[
+            Math.floor(
+                Math.random() * messages.length
+            )
+        ];
+
+    alert(random);
+
+}
+
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if(event.key === "Escape") {
+
+            closePhoto();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

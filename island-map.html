@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Isle 🐱</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Cherry+Bomb+One&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   BASIC SETUP
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Baloo 2", sans-serif;
+    cursor: none;
+}
+
+
+/* =====================================================
+   MAP
+===================================================== */
+
+.map {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a9e8f5,
+            #8dddea,
+            #a9e8f5
+        );
+}
+
+
+/* Animated water */
+
+.map::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 28px,
+            rgba(255,255,255,0.18) 29px,
+            transparent 31px
+        );
+
+    animation: waterMove 5s linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes waterMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(31px);
+    }
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.title {
+    position: absolute;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    padding: 10px 25px;
+
+    background: rgba(255,255,255,0.92);
+
+    border: 4px solid white;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 0 rgba(101,154,121,0.3),
+        0 8px 15px rgba(0,0,0,0.08);
+
+    white-space: nowrap;
+}
+
+.title h1 {
+    font-family: "Cherry Bomb One", cursive;
+
+    font-size: 28px;
+
+    color: #55785c;
+}
+
+.title p {
+    font-size: 14px;
+
+    color: #78977e;
+}
+
+
+/* =====================================================
+   LAND
+===================================================== */
+
+.land {
+    position: absolute;
+
+    background: #9bcf78;
+
+    border: 5px solid rgba(86,130,70,0.35);
+
+    box-shadow:
+        inset 0 -15px 0 rgba(70,120,65,0.12),
+        0 12px 0 rgba(66,120,74,0.2);
+}
+
+
+/* Main land */
+
+.land-main {
+    width: 72%;
+    height: 75%;
+
+    left: 14%;
+    top: 15%;
+
+    border-radius:
+        45% 55% 48% 52% /
+        48% 42% 58% 52%;
+
+    transform: rotate(-2deg);
+}
+
+
+/* Top land */
+
+.land-top {
+    width: 25%;
+    height: 27%;
+
+    left: 4%;
+    top: 9%;
+
+    border-radius:
+        55% 45% 60% 40%;
+}
+
+
+/* Bottom land */
+
+.land-bottom {
+    width: 27%;
+    height: 25%;
+
+    right: 3%;
+    bottom: 5%;
+
+    border-radius:
+        45% 55% 50% 50%;
+}
+
+
+/* =====================================================
+   BEACH
+===================================================== */
+
+.sand {
+    position: absolute;
+
+    background: #f7dfa4;
+
+    border-radius: 50%;
+}
+
+.sand-left {
+    width: 20%;
+    height: 15%;
+
+    left: 3%;
+    top: 35%;
+
+    transform: rotate(-20deg);
+}
+
+.sand-right {
+    width: 20%;
+    height: 13%;
+
+    right: 2%;
+    top: 25%;
+
+    transform: rotate(18deg);
+}
+
+.sand-bottom {
+    width: 30%;
+    height: 13%;
+
+    left: 34%;
+    bottom: 3%;
+}
+
+
+/* =====================================================
+   RIVER
+===================================================== */
+
+.river {
+    position: absolute;
+
+    width: 130px;
+    height: 90%;
+
+    left: 48%;
+    top: 12%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #73cce2,
+            #9ae5f0,
+            #73cce2
+        );
+
+    border-left: 5px solid rgba(60,150,175,0.25);
+    border-right: 5px solid rgba(60,150,175,0.25);
+
+    border-radius: 50%;
+
+    transform: rotate(8deg);
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   PATHS
+===================================================== */
+
+.path {
+    position: absolute;
+
+    background: #e9ca91;
+
+    border-radius: 50px;
+
+    z-index: 4;
+
+    box-shadow:
+        inset 0 3px 0 rgba(255,255,255,0.25);
+}
+
+.path-main {
+    width: 62%;
+    height: 28px;
+
+    left: 19%;
+    top: 52%;
+
+    transform: rotate(-5deg);
+}
+
+.path-up {
+    width: 25px;
+    height: 32%;
+
+    left: 37%;
+    top: 25%;
+
+    transform: rotate(-8deg);
+}
+
+.path-down {
+    width: 25px;
+    height: 31%;
+
+    left: 69%;
+    top: 48%;
+
+    transform: rotate(15deg);
+}
+
+.path-left {
+    width: 22%;
+    height: 24px;
+
+    left: 14%;
+    top: 43%;
+
+    transform: rotate(18deg);
+}
+
+.path-right {
+    width: 20%;
+    height: 24px;
+
+    right: 13%;
+    top: 60%;
+
+    transform: rotate(-18deg);
+}
+
+
+/* =====================================================
+   BRIDGE
+===================================================== */
+
+.bridge {
+    position: absolute;
+
+    width: 145px;
+    height: 38px;
+
+    left: 46%;
+    top: 47%;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #b97c52 0 15px,
+            #d59a68 15px 20px
+        );
+
+    border: 4px solid #8c5e43;
+
+    border-radius: 8px;
+
+    transform: rotate(8deg);
+
+    z-index: 8;
+}
+
+
+/* =====================================================
+   MAIN BUILDINGS
+===================================================== */
+
+.location {
+    position: absolute;
+
+    width: 135px;
+
+    z-index: 20;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.location:hover {
+    transform:
+        translateY(-10px)
+        scale(1.07);
+
+    z-index: 150;
+}
+
+
+/* =====================================================
+   HOUSE
+===================================================== */
+
+.house {
+    position: relative;
+
+    width: 105px;
+    height: 78px;
+
+    margin: 0 auto;
+
+    background: #fff0d0;
+
+    border: 4px solid #9b7658;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 8px 0 rgba(80,60,40,0.18);
+}
+
+
+/* Roof */
+
+.house::before {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    left: 4px;
+    top: -45px;
+
+    background: #f29b9b;
+
+    border: 4px solid #9b7658;
+
+    transform: rotate(45deg);
+
+    border-radius: 8px;
+
+    z-index: -1;
+}
+
+
+/* Chimney */
+
+.house::after {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 35px;
+
+    right: 12px;
+    top: -35px;
+
+    background: #d98c7d;
+
+    border: 4px solid #9b7658;
+
+    border-radius: 4px;
+}
+
+
+/* Windows */
+
+.window {
+    position: absolute;
+
+    width: 23px;
+    height: 25px;
+
+    top: 20px;
+
+    background: #9edfee;
+
+    border: 3px solid #806653;
+
+    border-radius: 5px;
+}
+
+.window.left {
+    left: 9px;
+}
+
+.window.right {
+    right: 9px;
+}
+
+
+/* Door */
+
+.door {
+    position: absolute;
+
+    width: 27px;
+    height: 42px;
+
+    bottom: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    background: #c98e69;
+
+    border: 3px solid #806653;
+
+    border-bottom: none;
+
+    border-radius:
+        8px 8px 0 0;
+}
+
+.door::after {
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    background: #f9df74;
+
+    border-radius: 50%;
+
+    right: 4px;
+    top: 22px;
+}
+
+
+/* =====================================================
+   DIFFERENT BUILDING ROOFS
+===================================================== */
+
+.music .house::before {
+    background: #91c8ed;
+}
+
+.gallery .house::before {
+    background: #e7a7d3;
+}
+
+.letter .house::before {
+    background: #bda5e8;
+}
+
+.present .house::before {
+    background: #f2b56f;
+}
+
+
+/* =====================================================
+   BUILDING POSITIONS
+===================================================== */
+
+.memories {
+    left: 20%;
+    top: 30%;
+}
+
+.music {
+    left: 55%;
+    top: 23%;
+}
+
+.gallery {
+    left: 72%;
+    top: 43%;
+}
+
+.letter {
+    left: 27%;
+    top: 63%;
+}
+
+.present {
+    left: 56%;
+    top: 67%;
+}
+
+
+/* =====================================================
+   SIGNS
+===================================================== */
+
+.sign {
+    position: relative;
+
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 5px 12px;
+
+    background: #fff8df;
+
+    border: 3px solid #a98463;
+
+    border-radius: 12px;
+
+    color: #657b61;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    box-shadow:
+        0 4px 0 rgba(80,60,40,0.15);
+}
+
+
+/* =====================================================
+   MINI LOCATIONS
+===================================================== */
+
+.mini {
+    position: absolute;
+
+    z-index: 15;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #55785c;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.mini:hover {
+    transform: scale(1.15);
+
+    z-index: 100;
+}
+
+.mini-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff7dd;
+
+    border: 4px solid #a98463;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 5px 0 rgba(80,60,40,0.15);
+}
+
+.mini-name {
+    margin-top: 3px;
+
+    background: rgba(255,255,255,0.85);
+
+    border-radius: 10px;
+
+    padding: 2px 7px;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* Positions */
+
+.beach {
+    left: 7%;
+    top: 42%;
+}
+
+.garden {
+    left: 42%;
+    top: 19%;
+}
+
+.gaming {
+    right: 7%;
+    top: 33%;
+}
+
+.cafe {
+    left: 9%;
+    bottom: 12%;
+}
+
+.secret {
+    right: 9%;
+    bottom: 18%;
+}
+
+
+/* =====================================================
+   TREES
+===================================================== */
+
+.tree {
+    position: absolute;
+
+    width: 38px;
+    height: 38px;
+
+    background: #5da467;
+
+    border: 4px solid #47794e;
+
+    border-radius: 50%;
+
+    z-index: 10;
+
+    box-shadow:
+        0 10px 0 -3px #9c704f;
+}
+
+.tree1 {
+    left: 16%;
+    top: 20%;
+}
+
+.tree2 {
+    left: 10%;
+    top: 62%;
+}
+
+.tree3 {
+    right: 17%;
+    top: 20%;
+}
+
+.tree4 {
+    right: 18%;
+    bottom: 12%;
+}
+
+.tree5 {
+    left: 46%;
+    bottom: 13%;
+}
+
+
+/* =====================================================
+   FLOWERS
+===================================================== */
+
+.flower {
+    position: absolute;
+
+    z-index: 12;
+
+    font-size: 22px;
+
+    animation:
+        flowerFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes flowerFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+
+}
+
+.flower1 {
+    left: 25%;
+    top: 21%;
+}
+
+.flower2 {
+    right: 27%;
+    top: 29%;
+}
+
+.flower3 {
+    left: 38%;
+    bottom: 18%;
+}
+
+.flower4 {
+    right: 10%;
+    bottom: 29%;
+}
+
+
+/* =====================================================
+   ROCKS
+===================================================== */
+
+.rock {
+    position: absolute;
+
+    width: 30px;
+    height: 21px;
+
+    background: #a9a59b;
+
+    border-radius: 50%;
+
+    border: 3px solid #7e7b73;
+
+    z-index: 11;
+}
+
+.rock1 {
+    left: 32%;
+    top: 37%;
+}
+
+.rock2 {
+    right: 29%;
+    bottom: 32%;
+}
+
+.rock3 {
+    left: 17%;
+    bottom: 25%;
+}
+
+
+/* =====================================================
+   🐱 PLAYER
+===================================================== */
+
+.player {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 75px;
+
+    z-index: 500;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%);
+
+    transition:
+        left 0.12s linear,
+        top 0.12s linear;
+}
+
+
+/* Cat */
+
+.player-character {
+    position: relative;
+
+    width: 48px;
+    height: 48px;
+
+    margin: auto;
+
+    background: #fff4d8;
+
+    border: 4px solid #8b735e;
+
+    border-radius:
+        48% 48% 45% 45%;
+
+    box-shadow:
+        0 7px 0 rgba(80,60,40,0.2);
+
+    animation:
+        playerBounce 0.8s ease-in-out infinite;
+}
+
+
+/* Ears */
+
+.player-character::before,
+.player-character::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: -14px;
+
+    width: 18px;
+    height: 18px;
+
+    background: #fff4d8;
+
+    border: 4px solid #8b735e;
+
+    z-index: -1;
+}
+
+.player-character::before {
+    left: 1px;
+
+    transform: rotate(35deg);
+}
+
+.player-character::after {
+    right: 1px;
+
+    transform: rotate(-35deg);
+}
+
+
+/* Eyes */
+
+.cat-eye {
+    position: absolute;
+
+    top: 18px;
+
+    width: 6px;
+    height: 8px;
+
+    background: #594c45;
+
+    border-radius: 50%;
+}
+
+.cat-eye.left {
+    left: 11px;
+}
+
+.cat-eye.right {
+    right: 11px;
+}
+
+
+/* Nose */
+
+.cat-nose {
+    position: absolute;
+
+    left: 50%;
+    top: 27px;
+
+    transform:
+        translateX(-50%);
+
+    width: 6px;
+    height: 5px;
+
+    background: #e994a6;
+
+    border-radius: 50%;
+}
+
+
+/* Blush */
+
+.cat-blush {
+    position: absolute;
+
+    width: 8px;
+    height: 4px;
+
+    background: #f3a6a6;
+
+    border-radius: 50%;
+
+    top: 29px;
+}
+
+.cat-blush.left {
+    left: 5px;
+}
+
+.cat-blush.right {
+    right: 5px;
+}
+
+
+/* Shadow */
+
+.player-shadow {
+    width: 43px;
+    height: 10px;
+
+    margin: 2px auto 0;
+
+    background:
+        rgba(50,90,70,0.22);
+
+    border-radius: 50%;
+}
+
+
+/* Bounce */
+
+@keyframes playerBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+}
+
+
+/* Name */
+
+.player-text {
+    margin-top: 7px;
+
+    padding: 4px 9px;
+
+    background:
+        rgba(255,255,255,0.95);
+
+    border: 2px solid #9a876f;
+
+    border-radius: 12px;
+
+    color: #65745f;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   🐾 CAT CURSOR
+===================================================== */
+
+.cat-cursor {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 30px;
+    height: 30px;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-size: 25px;
+
+    filter:
+        drop-shadow(
+            0 3px 2px rgba(0,0,0,0.2)
+        );
+
+    transition:
+        transform 0.08s ease;
+}
+
+
+/* Click */
+
+.cat-cursor.clicking {
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.75);
+}
+
+
+/* =====================================================
+   PLAYER INFO
+===================================================== */
+
+.info {
+
+    position: absolute;
+
+    bottom: 20px;
+    left: 20px;
+
+    z-index: 600;
+
+    background:
+        rgba(255,255,255,0.92);
+
+    padding: 10px 15px;
+
+    border-radius: 18px;
+
+    border: 3px solid white;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.1);
+
+    color: #61745e;
+
+    font-size: 13px;
+}
+
+.info strong {
+
+    font-family:
+        "Cherry Bomb One",
+        cursive;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   🧭 COMPASS
+===================================================== */
+
+.compass {
+
+    position: absolute;
+
+    right: 22px;
+    bottom: 20px;
+
+    z-index: 600;
+
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff7dd;
+
+    border: 4px solid #a98463;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 5px 0 rgba(80,60,40,0.15);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        cursor: default;
+    }
+
+    .title {
+        top: 10px;
+
+        padding: 8px 14px;
+    }
+
+    .title h1 {
+        font-size: 20px;
+    }
+
+    .title p {
+        font-size: 11px;
+    }
+
+    .location {
+        transform: scale(0.75);
+    }
+
+    .mini {
+        transform: scale(0.8);
+    }
+
+    .player,
+    .cat-cursor {
+        display: none;
+    }
+
+    .info {
+        font-size: 11px;
+
+        bottom: 10px;
+        left: 10px;
+    }
+
+    .compass {
+        bottom: 10px;
+        right: 10px;
+
+        width: 50px;
+        height: 50px;
+
+        font-size: 23px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="map">
+
+<!-- =================================================
+     TITLE
+================================================= -->
+
+<div class="title">
+
+```
+<h1>🌴 Birthday Isle 🌴</h1>
+
+<p>
+    Explore our little world ♡
+</p>
+```
+
+</div>
+
+<!-- =================================================
+     LAND
+================================================= -->
+
+<div class="land land-main"></div>
+<div class="land land-top"></div>
+<div class="land land-bottom"></div>
+
+<!-- =================================================
+     BEACH
+================================================= -->
+
+<div class="sand sand-left"></div>
+<div class="sand sand-right"></div>
+<div class="sand sand-bottom"></div>
+
+<!-- =================================================
+     RIVER
+================================================= -->
+
+<div class="river"></div>
+
+<!-- =================================================
+     PATHS
+================================================= -->
+
+<div class="path path-main"></div>
+<div class="path path-up"></div>
+<div class="path path-down"></div>
+<div class="path path-left"></div>
+<div class="path path-right"></div>
+
+<!-- =================================================
+     BRIDGE
+================================================= -->
+
+<div class="bridge"></div>
+
+<!-- =================================================
+     TREES
+================================================= -->
+
+<div class="tree tree1"></div>
+<div class="tree tree2"></div>
+<div class="tree tree3"></div>
+<div class="tree tree4"></div>
+<div class="tree tree5"></div>
+
+<!-- =================================================
+     FLOWERS
+================================================= -->
+
+<div class="flower flower1">🌷</div>
+<div class="flower flower2">🌸</div>
+<div class="flower flower3">🌼</div>
+<div class="flower flower4">🌷</div>
+
+<!-- =================================================
+     ROCKS
+================================================= -->
+
+<div class="rock rock1"></div>
+<div class="rock rock2"></div>
+<div class="rock rock3"></div>
+
+<!-- =================================================
+     🏡 MEMORIES
+================================================= -->
+
+<a
+href="our-memories.html"
+class="location memories"
+
+>
+
+```
+<div class="house">
+
+    <div class="window left"></div>
+    <div class="window right"></div>
+
+    <div class="door"></div>
+
+</div>
+
+<div class="sign">
+    🏡 Our Memories
+</div>
+```
+
+</a>
+
+<!-- =================================================
+     🎵 MUSIC
+================================================= -->
+
+<a
+href="open-this-last.html"
+class="location music"
+
+>
+
+```
+<div class="house">
+
+    <div class="window left"></div>
+    <div class="window right"></div>
+
+    <div class="door"></div>
+
+</div>
+
+<div class="sign">
+    🚪Open this Last
+</div>
+```
+
+</a>
+
+<!-- =================================================
+     📸 GALLERY
+================================================= -->
+
+<a
+href="photo-gallery.html"
+class="location gallery"
+
+>
+
+```
+<div class="house">
+
+    <div class="window left"></div>
+    <div class="window right"></div>
+
+    <div class="door"></div>
+
+</div>
+
+<div class="sign">
+    📸 Photo Gallery
+</div>
+```
+
+</a>
+
+<!-- =================================================
+     💌 LOVE LETTER
+================================================= -->
+
+<a
+href="love-letter.html"
+class="location letter"
+
+>
+
+```
+<div class="house">
+
+    <div class="window left"></div>
+    <div class="window right"></div>
+
+    <div class="door"></div>
+
+</div>
+
+<div class="sign">
+    💌 Love Letter
+</div>
+```
+
+</a>
+
+<!-- =================================================
+     🎁 BIRTHDAY PRESENT
+================================================= -->
+
+<a
+href="birthday-present.html"
+class="location present"
+
+>
+
+```
+<div class="house">
+
+    <div class="window left"></div>
+    <div class="window right"></div>
+
+    <div class="door"></div>
+
+</div>
+
+<div class="sign">
+    🎁 Birthday Present
+</div>
+```
+
+</a>
+
+
+<!-- =================================================
+     🌸 Ending
+================================================= -->
+
+<a
+href="ending.html"
+class="mini garden"
+
+>
+
+```
+<div class="mini-icon">
+    🌸
+</div>
+
+<div class="mini-name">
+    Ending
+</div>
+```
+
+</a>
+
+<!-- =================================================
+     🎮 GAMING
+================================================= -->
+
+<a
+href="gaming-corner.html"
+class="mini gaming"
+
+>
+
+```
+<div class="mini-icon">
+    🎮
+</div>
+
+<div class="gaming corner">
+    Gaming Corner
+</div>
+```
+
+</a>
+
+<!-- =================================================
+     🍰 CAFE
+================================================= -->
+
+<a
+href="birthday-cake.html"
+class="mini cafe"
+
+>
+
+```
+<div class="mini-icon">
+    🍰
+</div>
+
+<div class="mini-name">
+    Birthday Café
+</div>
+```
+
+</a>
+
+
+
+<!-- =================================================
+     🐱 PLAYER
+================================================= -->
+
+<div
+    class="player"
+    id="player"
+>
+
+```
+<div class="player-character">
+
+    <div class="cat-eye left"></div>
+
+    <div class="cat-eye right"></div>
+
+    <div class="cat-nose"></div>
+
+    <div class="cat-blush left"></div>
+
+    <div class="cat-blush right"></div>
+
+</div>
+
+
+<div class="player-shadow"></div>
+
+
+<div class="player-text">
+    Birthday Boy ♡
+</div>
+```
+
+</div>
+
+<!-- =================================================
+     🐾 CAT CURSOR
+================================================= -->
+
+<div
+    class="cat-cursor"
+    id="catCursor"
+>
+    🐾
+</div>
+
+<!-- =================================================
+     INFO
+================================================= -->
+
+<div class="info">
+
+```
+🎮 <strong>PLAYER 1</strong>
+
+<br>
+
+Move your mouse to explore! 🐾
+```
+
+</div>
+
+<!-- =================================================
+     COMPASS
+================================================= -->
+
+<div class="compass">
+    🧭
+</div>
+
+</div>
+
+<script>
+
+/* =====================================================
+   GET ELEMENTS
+===================================================== */
+
+const player =
+    document.getElementById("player");
+
+const catCursor =
+    document.getElementById("catCursor");
+
+
+/* =====================================================
+   PLAYER STARTING POSITION
+===================================================== */
+
+let playerX =
+    window.innerWidth / 2;
+
+let playerY =
+    window.innerHeight / 2;
+
+
+/* =====================================================
+   MOUSE POSITION
+===================================================== */
+
+let mouseX = playerX;
+let mouseY = playerY;
+
+
+/* Used to turn the cat */
+
+let previousX = playerX;
+
+
+/* =====================================================
+   MOUSE MOVEMENT
+===================================================== */
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        mouseX =
+            event.clientX;
+
+        mouseY =
+            event.clientY;
+
+
+        /* Move cat paw cursor */
+
+        catCursor.style.left =
+            mouseX + "px";
+
+        catCursor.style.top =
+            mouseY + "px";
+
+    }
+);
+
+
+/* =====================================================
+   PLAYER FOLLOWS MOUSE
+===================================================== */
+
+function movePlayer() {
+
+    /*
+       Lower number =
+       slower / smoother
+
+       Higher number =
+       faster
+    */
+
+    const speed = 0.08;
+
+
+    playerX +=
+        (mouseX - playerX)
+        * speed;
+
+    playerY +=
+        (mouseY - playerY)
+        * speed;
+
+
+    /* Keep player inside screen */
+
+    const marginX = 40;
+    const marginY = 75;
+
+
+    playerX =
+        Math.max(
+            marginX,
+            Math.min(
+                window.innerWidth - marginX,
+                playerX
+            )
+        );
+
+
+    playerY =
+        Math.max(
+            marginY,
+            Math.min(
+                window.innerHeight - marginY,
+                playerY
+            )
+        );
+
+
+    /* Update player */
+
+    player.style.left =
+        playerX + "px";
+
+    player.style.top =
+        playerY + "px";
+
+
+    /* =================================================
+       TURN CAT
+    ================================================= */
+
+    if (
+        playerX >
+        previousX + 1
+    ) {
+
+        player.style.transform =
+            "translate(-50%, -50%) scaleX(1)";
+
+    }
+
+    else if (
+        playerX <
+        previousX - 1
+    ) {
+
+        player.style.transform =
+            "translate(-50%, -50%) scaleX(-1)";
+
+    }
+
+
+    previousX =
+        playerX;
+
+
+    requestAnimationFrame(
+        movePlayer
+    );
+}
+
+
+/* Start player */
+
+movePlayer();
+
+
+/* =====================================================
+   CAT CURSOR CLICK
+===================================================== */
+
+document.addEventListener(
+    "mousedown",
+    function() {
+
+        catCursor.classList.add(
+            "clicking"
+        );
+
+    }
+);
+
+
+document.addEventListener(
+    "mouseup",
+    function() {
+
+        catCursor.classList.remove(
+            "clicking"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   RESIZE
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    function() {
+
+        mouseX =
+            Math.min(
+                mouseX,
+                window.innerWidth
+            );
+
+        mouseY =
+            Math.min(
+                mouseY,
+                window.innerHeight
+            );
+
+    }
+);
+
+</script>
+
+</body>
+</html>

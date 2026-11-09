@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Final Surprise ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #e4f3ff, #fff0f5, #fff9e9);
+    font-family: 'Baloo 2', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    color: #7187a5;
+    padding: 25px 15px;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 550px;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.tag {
+    display: inline-block;
+    background: #ffffffb8;
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #9c9cc5;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-size: clamp(32px, 7vw, 45px);
+    line-height: 1.2;
+    color: #829bc0;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    font-family: 'Comic Neue', cursive;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #9b91b5;
+}
+
+.door-area {
+    margin: 20px auto;
+    position: relative;
+    width: 190px;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.door-frame {
+    width: 145px;
+    height: 205px;
+    background: #d9c6b8;
+    border-radius: 75px 75px 8px 8px;
+    padding: 9px;
+    box-shadow: 0 10px 25px #a6a0b533;
+}
+
+.door {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f5d7b9, #e9bfa8);
+    border: 3px solid #e6b99f;
+    border-radius: 65px 65px 5px 5px;
+    position: relative;
+    transform-origin: left;
+    transition: transform 1.3s ease;
+    box-shadow: inset 0 0 15px #ffffff55;
+}
+
+.door::before {
+    content: "♡";
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: #fff7ed;
+}
+
+.door::after {
+    content: "";
+    position: absolute;
+    right: 13px;
+    top: 55%;
+    width: 11px;
+    height: 11px;
+    background: #d69d62;
+    border-radius: 50%;
+}
+
+.door.open {
+    transform: perspective(700px) rotateY(-105deg);
+}
+
+.glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #fff6c9;
+    filter: blur(35px);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.instruction {
+    color: #a49bb9;
+    font-size: 15px;
+    margin: 10px 0 22px;
+}
+
+.message {
+    background: #ffffffb8;
+    border: 2px solid #ffffff;
+    border-radius: 22px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 7px 25px #b6b4cc20;
+}
+
+.message p {
+    font-family: 'Comic Neue', cursive;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    background: linear-gradient(135deg, #f4c7d8, #c9dafa);
+    color: #7585a7;
+    font-family: 'Baloo 2', cursive;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 13px 35px;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px #b9b5d633;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+#finalMessage {
+    display: none;
+    animation: fadeIn 1.2s ease;
+}
+
+#finalMessage h2 {
+    color: #d99db8;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#finalMessage p {
+    font-family: 'Comic Neue', cursive;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+.return {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #9a9db9;
+    font-size: 14px;
+}
+
+.return:hover {
+    color: #d99db8;
+}
+
+.float {
+    position: fixed;
+    pointer-events: none;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.65;
+    z-index: 1;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-25px) rotate(15deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 480px) {
+    .container { padding: 20px 10px; }
+    .subtitle { font-size: 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="float" style="top:10%;left:10%;font-size:25px;">♡</div>
+<div class="float" style="top:20%;right:12%;font-size:20px;animation-delay:1s;">✧</div>
+<div class="float" style="bottom:15%;left:15%;font-size:22px;animation-delay:2s;">☁</div>
+<div class="float" style="bottom:20%;right:10%;font-size:25px;animation-delay:3s;">♡</div>
+<div class="float" style="top:50%;left:5%;font-size:17px;">✦</div>
+<div class="float" style="top:65%;right:5%;font-size:20px;">✧</div>
+
+<div class="container">
+
+    <div class="tag">✦ YOUR FINAL DESTINATION ✦</div>
+
+    <h1>You Made It! ♡</h1>
+
+    <p class="subtitle">
+        You've explored the island, unlocked memories,
+        played games and collected little surprises...
+    </p>
+
+    <div class="door-area">
+        <div class="glow"></div>
+        <div class="door-frame">
+            <div class="door" id="door"></div>
+        </div>
+    </div>
+
+    <p class="instruction" id="instruction">
+        Psst... there's one last thing waiting for you.
+    </p>
+
+    <div class="message" id="intro">
+        <p>
+            This is the final page of your Birthday Island adventure! 
+            But guess what? ♡
+            <br><br>
+            Your biggest surprise isn't on this screen...
+            it's waiting for you in real life!
+        </p>
+    </div>
+
+    <button id="openBtn" onclick="openDoor()">
+        OPEN YOUR DOOR ♡
+    </button>
+
+    <div id="finalMessage">
+        <h2>ONE LAST SURPRISE! 🎁</h2>
+
+        <p>
+            You've reached the end of your little adventure,
+            my love.
+            <br><br>
+            Thank you for being you, for making my world
+            happier and for giving me so many beautiful
+            memories.
+            <br><br>
+            Now... close this page, stand up,
+            and OPEN YOUR DOOR!!
+            <br><br>
+            Your real-life birthday surprise is waiting for you! ♡
+            <br><br>
+            I love you, Mark! 💗
+        </p>
+
+        <div style="font-size:30px;margin-top:15px;">
+            🎂 🎀 💗 🎁
+        </div>
+    </div>
+
+    <a class="return" href="island-map.html">← Back to Birthday Island</a>
+
+</div>
+
+<script>
+function openDoor() {
+    const door = document.getElementById("door");
+    const button = document.getElementById("openBtn");
+    const intro = document.getElementById("intro");
+    const finalMessage = document.getElementById("finalMessage");
+    const instruction = document.getElementById("instruction");
+
+    door.classList.add("open");
+    button.style.display = "none";
+    intro.style.display = "none";
+    instruction.style.display = "none";
+
+    setTimeout(() => {
+        finalMessage.style.display = "block";
+    }, 900);
+}
+</script>
+
+</body>
+</html>

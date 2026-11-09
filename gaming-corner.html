@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gaming Corner 🎮 | Birthday Island</title>
+
+<!-- Cute Birthday Island Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700;800&family=Cherry+Bomb+One&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Baloo 2", sans-serif;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.8) 0 25px, transparent 26px),
+        radial-gradient(circle at 85% 25%, rgba(255,255,255,.65) 0 18px, transparent 19px),
+        linear-gradient(180deg, #bcecff 0%, #dff8ff 48%, #fff4d6 100%);
+    color: #4d5266;
+    position: relative;
+}
+
+/* =========================================================
+   FLOATING DECORATIONS
+========================================================= */
+
+.decor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatAround 5s ease-in-out infinite;
+}
+
+.decor span {
+    display: block;
+    font-size: 28px;
+    opacity: .8;
+}
+
+.d1 {
+    left: 5%;
+    top: 15%;
+    animation-delay: 0s;
+}
+
+.d2 {
+    right: 7%;
+    top: 13%;
+    animation-delay: 1s;
+}
+
+.d3 {
+    left: 9%;
+    bottom: 15%;
+    animation-delay: 2s;
+}
+
+.d4 {
+    right: 8%;
+    bottom: 13%;
+    animation-delay: 3s;
+}
+
+.d5 {
+    left: 48%;
+    top: 8%;
+    animation-delay: 1.5s;
+}
+
+@keyframes floatAround {
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-13px) rotate(5deg);
+    }
+}
+
+/* =========================================================
+   MAIN GAME
+========================================================= */
+
+.game-wrapper {
+    width: min(900px, 92%);
+    margin: auto;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 0;
+    position: relative;
+    z-index: 5;
+}
+
+.game-card {
+    width: 100%;
+    background: rgba(255,255,255,.9);
+    border: 4px solid rgba(255,255,255,.95);
+    border-radius: 35px;
+    padding: 28px;
+    box-shadow:
+        0 18px 45px rgba(90,120,150,.18),
+        inset 0 0 0 3px #dff7ff;
+    text-align: center;
+    position: relative;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.arcade-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.arcade-icon {
+    width: 55px;
+    height: 42px;
+    background: #ffd2df;
+    border-radius: 18px;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 0 #e8aebe;
+    position: relative;
+}
+
+.arcade-icon::before {
+    content: "✚";
+    position: absolute;
+    left: 10px;
+    top: 7px;
+    font-size: 20px;
+    color: #777c94;
+}
+
+.arcade-icon::after {
+    content: "● ●";
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    font-size: 12px;
+    color: #ff7297;
+}
+
+h1 {
+    font-family: "Cherry Bomb One", cursive;
+    font-size: clamp(34px, 6vw, 55px);
+    color: #ff789b;
+    text-shadow: 3px 3px 0 white;
+    line-height: 1;
+}
+
+.subtitle {
+    font-family: "Comic Neue", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    margin-top: 8px;
+    color: #70758a;
+}
+
+/* =========================================================
+   PLAYER BAR
+========================================================= */
+
+.player-bar {
+    margin: 22px auto;
+    max-width: 650px;
+    background: #fff4d6;
+    border: 3px dashed #f1ca7b;
+    border-radius: 20px;
+    padding: 11px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-weight: 800;
+}
+
+.player {
+    color: #6e73a1;
+}
+
+.level {
+    color: #ff789b;
+}
+
+.score {
+    background: white;
+    padding: 5px 14px;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.07);
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-area {
+    max-width: 650px;
+    margin: 0 auto 22px;
+}
+
+.progress-text {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 13px;
+    background: #e7edf5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff9fba, #ffc4d4, #9fe5ff);
+    border-radius: 20px;
+    transition: width .4s ease;
+}
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.question-box {
+    max-width: 700px;
+    margin: auto;
+}
+
+.question-number {
+    font-family: "Cherry Bomb One", cursive;
+    color: #9b9fc5;
+    font-size: 18px;
+}
+
+.question {
+    font-family: "Baloo 2", sans-serif;
+    font-size: clamp(23px, 4vw, 31px);
+    font-weight: 800;
+    color: #555b75;
+    margin: 10px 0 22px;
+}
+
+/* =========================================================
+   ANSWERS
+========================================================= */
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 650px;
+    margin: auto;
+}
+
+.answer-btn {
+    border: 3px solid #fff;
+    background: #eefaff;
+    border-radius: 20px;
+    padding: 15px 14px;
+    min-height: 70px;
+    font-family: "Baloo 2", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #62677d;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #c7e6ef;
+    transition: .18s ease;
+}
+
+.answer-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 0 #c7e6ef;
+    background: #fff4f8;
+}
+
+.answer-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #c7e6ef;
+}
+
+.answer-btn.correct {
+    background: #d9f8dc;
+    border-color: #9bdba3;
+    box-shadow: 0 6px 0 #91c998;
+}
+
+.answer-btn.wrong {
+    background: #ffe0e7;
+    border-color: #f4a4b6;
+    box-shadow: 0 6px 0 #dc8c9f;
+}
+
+/* =========================================================
+   HINT
+========================================================= */
+
+.hint {
+    margin: 20px auto 0;
+    max-width: 650px;
+    background: #fffaf0;
+    border-radius: 16px;
+    padding: 9px 15px;
+    font-family: "Comic Neue", sans-serif;
+    font-size: 14px;
+    color: #777;
+}
+
+/* =========================================================
+   NEXT BUTTON
+========================================================= */
+
+.next-btn {
+    margin-top: 22px;
+    border: none;
+    background: #ff88a8;
+    color: white;
+    padding: 13px 30px;
+    border-radius: 20px;
+    font-family: "Baloo 2", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #d96889;
+    display: none;
+}
+
+.next-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   RETURN BUTTON
+========================================================= */
+
+.return-btn {
+    display: inline-block;
+    margin-top: 28px;
+    text-decoration: none;
+    color: #62677d;
+    background: #ffffff;
+    border: 3px solid #d8e9f0;
+    padding: 9px 20px;
+    border-radius: 18px;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: 0 4px 0 #c7dce3;
+    transition: .2s ease;
+}
+
+.return-btn:hover {
+    transform: translateY(-3px);
+    background: #f7fdff;
+}
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(74,85,110,.35);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    padding: 20px;
+}
+
+.popup {
+    width: min(430px, 95%);
+    background: white;
+    border: 5px solid #fff;
+    border-radius: 32px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(40,50,70,.25);
+    animation: popupIn .35s ease;
+}
+
+@keyframes popupIn {
+    from {
+        transform: scale(.7) rotate(-3deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.popup-icon {
+    font-size: 55px;
+    margin-bottom: 8px;
+}
+
+.popup h2 {
+    font-family: "Cherry Bomb One", cursive;
+    font-size: 29px;
+    color: #ff789b;
+    margin-bottom: 8px;
+}
+
+.popup p {
+    font-family: "Comic Neue", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.45;
+}
+
+.popup-close {
+    margin-top: 18px;
+    border: none;
+    background: #9fdff2;
+    color: #4d6070;
+    border-radius: 18px;
+    padding: 10px 25px;
+    font-family: "Baloo 2", sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* =========================================================
+   FINAL SCREEN
+========================================================= */
+
+.final-screen {
+    display: none;
+    animation: popupIn .5s ease;
+}
+
+.final-title {
+    font-family: "Cherry Bomb One", cursive;
+    font-size: clamp(36px, 7vw, 58px);
+    color: #ff789b;
+    text-shadow: 3px 3px white;
+}
+
+.final-score {
+    margin: 20px auto;
+    background: #fff4d6;
+    border-radius: 22px;
+    padding: 18px;
+    max-width: 350px;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.final-message {
+    max-width: 600px;
+    margin: auto;
+    font-family: "Comic Neue", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.play-again {
+    margin-top: 25px;
+    border: none;
+    background: #ff88a8;
+    color: white;
+    padding: 13px 27px;
+    border-radius: 20px;
+    font-family: "Baloo 2", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #d96889;
+}
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+.confetti {
+    position: fixed;
+    width: 9px;
+    height: 14px;
+    z-index: 150;
+    pointer-events: none;
+    animation: confettiFall 1.4s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-20px) rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width: 600px) {
+
+    .game-card {
+        padding: 22px 15px;
+        border-radius: 27px;
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    .player-bar {
+        justify-content: center;
+    }
+
+    .decor span {
+        font-size: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING DECORATIONS -->
+<div class="decor d1"><span>⭐</span></div>
+<div class="decor d2"><span>🎮</span></div>
+<div class="decor d3"><span>💗</span></div>
+<div class="decor d4"><span>🕹️</span></div>
+<div class="decor d5"><span>✨</span></div>
+
+
+<div class="game-wrapper">
+
+<div class="game-card">
+
+    <!-- HEADER -->
+    <div class="arcade-top">
+        <div class="arcade-icon"></div>
+
+        <div>
+            <h1>Gaming Corner</h1>
+            <div class="subtitle">
+                Welcome, Birthday Boy! 🎮
+            </div>
+        </div>
+    </div>
+
+
+    <!-- PLAYER INFO -->
+    <div class="player-bar">
+
+        <div class="player">
+            PLAYER 1: Birthday Boy
+        </div>
+
+        <div class="level">
+            LEVEL: LOVE EXPERT
+        </div>
+
+        <div class="score">
+            ⭐ <span id="score">0</span> / 7
+        </div>
+
+    </div>
+
+
+    <!-- GAME -->
+    <div id="game">
+
+        <div class="progress-area">
+
+            <div class="progress-text">
+                Mission Progress
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+
+        </div>
+
+
+        <div class="question-box">
+
+            <div class="question-number" id="questionNumber">
+                QUESTION 1
+            </div>
+
+            <div class="question" id="question">
+                Loading...
+            </div>
+
+            <div class="answers" id="answers"></div>
+
+            <div class="hint" id="hint">
+                💡 Hint: Think carefully, Birthday Boy...
+            </div>
+
+            <button class="next-btn" id="nextBtn">
+                NEXT LEVEL ➜
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FINAL SCREEN -->
+    <div class="final-screen" id="finalScreen">
+
+        <div class="final-title">
+            LEVEL COMPLETE! 🎉
+        </div>
+
+        <div class="final-score">
+            ⭐ SCORE: <span id="finalScore">0</span> / 7 ⭐
+        </div>
+
+        <p class="final-message" id="finalMessage"></p>
+
+        <button class="play-again" onclick="restartGame()">
+            PLAY AGAIN 🎮
+        </button>
+
+    </div>
+
+
+    <!-- RETURN TO ISLAND -->
+    <a href="island-map.html" class="return-btn">
+        🏝️ RETURN TO ISLAND
+    </a>
+
+</div>
+</div>
+
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popupOverlay">
+
+    <div class="popup">
+
+        <div class="popup-icon" id="popupIcon">
+            💗
+        </div>
+
+        <h2 id="popupTitle">
+            YAY!
+        </h2>
+
+        <p id="popupMessage">
+            You got it!
+        </p>
+
+        <button class="popup-close" onclick="closePopup()">
+            OKAY! 💕
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   QUIZ QUESTIONS
+   CHANGE THE QUESTIONS + ANSWERS HERE
+========================================================= */
+
+const questions = [
+
+    {
+        question: "Who is the biggest troublemaker in this relationship? 😇",
+        answers: [
+            "Definitely me 😌",
+            "Definitely you 😂",
+            "We're both innocent",
+            "The cat did it 🐱"
+        ],
+        correct: 0,
+        hint: "Be honest... you already know the answer."
+    },
+
+    {
+        question: "Who is most likely to steal the blanket at night? 🛌",
+        answers: [
+            "Me, obviously 💗",
+            "You, obviously 😂",
+            "The blanket steals itself",
+            "Nobody — we're too polite"
+        ],
+        correct: 1,
+        hint: "Think about who wakes up wrapped like a burrito."
+    },
+
+    {
+        question: "If we could teleport anywhere for a date, where would I probably choose? ✈️",
+        answers: [
+            "Somewhere with amazing food 🍜",
+            "A boring office",
+            "A supermarket",
+            "A random parking lot"
+        ],
+        correct: 0,
+        hint: "Food is always involved somehow..."
+    },
+
+    {
+        question: "What is my most powerful relationship skill? 💗",
+        answers: [
+            "Making you laugh",
+            "Stealing your food",
+            "Giving you cute kisses",
+            "All of the above 😌"
+        ],
+        correct: 3,
+        hint: "There may be more than one suspiciously correct answer..."
+    },
+
+    {
+        question: "Who would survive longer in a zombie apocalypse? 🧟",
+        answers: [
+            "Me — I'm prepared",
+            "You — apparently you're the hero",
+            "We'd hide together",
+            "We'd stop for food first 🍜"
+        ],
+        correct: 0,
+        hint: "Teamwork makes the dream work!"
+    },
+
+    {
+        question: "😏 FINAL CHEEKY QUESTION: What is probably my favourite way to get your attention?",
+        answers: [
+            "A cute little cuddle 💗",
+            "Stealing your hoodie 😌",
+            "A sneaky kiss 💋",
+            "All of the above... hehe"
+        ],
+        correct: 3,
+        hint: "This one might require knowing your Birthday Girl very well..."
+    },
+
+    {
+        question: "💋 BOSS LEVEL: What does the Birthday Boy deserve after completing this game?",
+        answers: [
+            "A huge birthday hug 🤗",
+            "A kiss 💋",
+            "A special birthday surprise 🎁",
+            "ALL OF THEM — obviously ❤️"
+        ],
+        correct: 3,
+        hint: "You didn't come all this way for only one reward..."
+    }
+
+];
+
+
+/* =========================================================
+   GAME VARIABLES
+========================================================= */
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion() {
+
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber").textContent =
+        "QUESTION " + (currentQuestion + 1);
+
+    document.getElementById("question").textContent =
+        q.question;
+
+    document.getElementById("hint").textContent =
+        "💡 Hint: " + q.hint;
+
+    document.getElementById("progress").style.width =
+        ((currentQuestion) / questions.length * 100) + "%";
+
+    const answersContainer =
+        document.getElementById("answers");
+
+    answersContainer.innerHTML = "";
+
+    q.answers.forEach((answer, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "answer-btn";
+
+        button.textContent =
+            String.fromCharCode(65 + index) + ". " + answer;
+
+        button.onclick = () =>
+            selectAnswer(index, button);
+
+        answersContainer.appendChild(button);
+
+    });
+
+    document.getElementById("nextBtn").style.display = "none";
+}
+
+
+/* =========================================================
+   ANSWER SELECTION
+========================================================= */
+
+function selectAnswer(index, button) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const q = questions[currentQuestion];
+
+    const allButtons =
+        document.querySelectorAll(".answer-btn");
+
+    allButtons.forEach(btn => {
+        btn.disabled = true;
+    });
+
+
+    if (index === q.correct) {
+
+        score++;
+
+        button.classList.add("correct");
+
+        document.getElementById("score").textContent =
+            score;
+
+        showCorrectPopup();
+
+        createConfetti();
+
+    } else {
+
+        button.classList.add("wrong");
+
+        allButtons[q.correct].classList.add("correct");
+
+        showWrongPopup();
+
+    }
+
+    document.getElementById("nextBtn").style.display =
+        "inline-block";
+
+}
+
+
+/* =========================================================
+   CORRECT POPUP
+========================================================= */
+
+function showCorrectPopup() {
+
+    const messages = [
+
+        [
+            "🎉",
+            "YOU GOT IT!",
+            "Okayyyy Birthday Boy! Someone has clearly been paying attention. 💗"
+        ],
+
+        [
+            "💗",
+            "AWWWW!",
+            "Look at you getting it right! You officially earn a cute little birthday kiss. 💋"
+        ],
+
+        [
+            "⭐",
+            "GENIUS!",
+            "Correct! Your girlfriend is very impressed... don't let it go to your head though. 😌"
+        ],
+
+        [
+            "🥰",
+            "SO CUTE!",
+            "You know me way too well. I might have to keep you. 💕"
+        ]
+    ];
+
+    const random =
+        messages[Math.floor(Math.random() * messages.length)];
+
+    openPopup(random[0], random[1], random[2]);
+}
+
+
+/* =========================================================
+   WRONG POPUP
+========================================================= */
+
+function showWrongPopup() {
+
+    const messages = [
+
+        [
+            "😂",
+            "EXCUSE ME?!",
+            "That answer was suspicious... I'm giving you one dramatic girlfriend stare. 👀"
+        ],
+
+        [
+            "🤨",
+            "HMMMM...",
+            "Interesting choice, Birthday Boy. We may need to have a little meeting about this. 😂"
+        ],
+
+        [
+            "🐱",
+            "THE CAT KNOWS BETTER",
+            "Even the imaginary Birthday Island cat got that one right. 🐱"
+        ],
+
+        [
+            "😭",
+            "OH NOOO!",
+            "I'll pretend I didn't see that answer... for now. You still have another chance! 💗"
+        ]
+    ];
+
+    const random =
+        messages[Math.floor(Math.random() * messages.length)];
+
+    openPopup(random[0], random[1], random[2]);
+}
+
+
+/* =========================================================
+   POPUP FUNCTIONS
+========================================================= */
+
+function openPopup(icon, title, message) {
+
+    document.getElementById("popupIcon").textContent =
+        icon;
+
+    document.getElementById("popupTitle").textContent =
+        title;
+
+    document.getElementById("popupMessage").textContent =
+        message;
+
+    document.getElementById("popupOverlay").style.display =
+        "flex";
+}
+
+
+function closePopup() {
+
+    document.getElementById("popupOverlay").style.display =
+        "none";
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+document.getElementById("nextBtn").onclick = function() {
+
+    closePopup();
+
+    currentQuestion++;
+
+    if (currentQuestion >= questions.length) {
+
+        showFinalScreen();
+
+    } else {
+
+        loadQuestion();
+
+    }
+
+};
+
+
+/* =========================================================
+   FINAL SCREEN
+========================================================= */
+
+function showFinalScreen() {
+
+    document.getElementById("game").style.display =
+        "none";
+
+    document.getElementById("finalScreen").style.display =
+        "block";
+
+    document.getElementById("progress").style.width =
+        "100%";
+
+    document.getElementById("finalScore").textContent =
+        score;
+
+
+    let message = "";
+
+    if (score === 7) {
+
+        message =
+        "PERFECT SCORE! 🏆💗 You have officially unlocked Birthday Boy Supreme status. Your reward is waiting for you... 😏🎁";
+
+    } else if (score >= 5) {
+
+        message =
+        "Pretty impressive! ⭐ You clearly know your girlfriend very well. Your Birthday Island reward has been unlocked! 💕";
+
+    } else if (score >= 3) {
+
+        message =
+        "Not bad, Birthday Boy! 😂 You may need a little extra girlfriend training, but you're still getting a birthday reward. 💗";
+
+    } else {
+
+        message =
+        "Ummm... we might need to schedule some relationship revision classes. 😂 But because it's your birthday, you're still getting a reward. 🎁💋";
+
+    }
+
+    document.getElementById("finalMessage").textContent =
+        message;
+
+    createBigConfetti();
+}
+
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restartGame() {
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("score").textContent =
+        "0";
+
+    document.getElementById("game").style.display =
+        "block";
+
+    document.getElementById("finalScreen").style.display =
+        "none";
+
+    loadQuestion();
+}
+
+
+/* =========================================================
+   SMALL CONFETTI
+========================================================= */
+
+function createConfetti() {
+
+    const symbols = ["💗", "✨", "⭐", "🎉", "💕"];
+
+    for (let i = 0; i < 18; i++) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.top =
+            "-20px";
+
+        piece.style.fontSize =
+            (12 + Math.random() * 12) + "px";
+
+        piece.style.animationDuration =
+            (1 + Math.random() * .8) + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 2000);
+    }
+}
+
+
+/* =========================================================
+   BIG CONFETTI
+========================================================= */
+
+function createBigConfetti() {
+
+    const symbols =
+        ["💗", "💕", "✨", "⭐", "🎉", "🎁", "🎮"];
+
+    for (let i = 0; i < 55; i++) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.top =
+            "-30px";
+
+        piece.style.fontSize =
+            (13 + Math.random() * 16) + "px";
+
+        piece.style.animationDuration =
+            (1.5 + Math.random() * 1.5) + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 3500);
+    }
+}
+
+
+/* =========================================================
+   START GAME
+========================================================= */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
+```
